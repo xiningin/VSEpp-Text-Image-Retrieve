@@ -7,6 +7,7 @@ import numpy as np
 import time
 from data_process import get_test_loader
 from model import VSE
+from pprint import pprint
 
 
 
@@ -163,6 +164,11 @@ def evalrank(model_path):
     with open(os.path.join(old_args.vocab_path , 'flickr30k_vocab.pkl') , 'rb') as f:
         vocab = pickle.load(f)
     old_args.vocab_size = len(vocab)
+
+    print("-----------------------------------------------")
+    pprint(old_args)
+    print("-----------------------------------------------")
+
     model = VSE(
         old_args.embed_size,
         old_args.finetune,
@@ -171,7 +177,13 @@ def evalrank(model_path):
         old_args.vocab_size,
         old_args.margin,
         old_args.max_violation,
-        old_args.grad_clip
+        old_args.grad_clip,
+        old_args.use_InfoNCE_loss,
+        old_args.rnn_mean_pool,
+        old_args.bidirection_rnn,
+        old_args.cnn_type,
+        old_args.use_attention_for_text,
+        old_args.num_heads
     )
     model.load_state_dict(checkpoint['model'])
 

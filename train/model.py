@@ -8,6 +8,7 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 from torch.autograd import Variable
 from torch.nn.utils import clip_grad_norm_
 from info_nce import InfoNCE
+import math
 
 
 if args.gpu.lower() == 'cpu':
@@ -19,10 +20,10 @@ else:
 
 
 class ImageEncoder(nn.Module):
-    def __init__(self , embed_size , finetune=False):
+    def __init__(self , embed_size , cnn_type , finetune=False):
         super(ImageEncoder , self).__init__()
         self.embed_size = embed_size
-        if args.cnn_type == 'VGG19':
+        if cnn_type == 'VGG19':
             self.cnn = models.vgg19(pretrained=True).to(DEVICE)
 
             """out_features
@@ -51,14 +52,14 @@ class ImageEncoder(nn.Module):
             for param in self.cnn.classifier.parameters():
                 param.requires_grad = True
 
-        elif 'ResNet' in args.cnn_type:
-            if args.cnn_type == 'ResNet101':
+        elif 'ResNet' in cnn_type:
+            if cnn_type == 'ResNet101':
                 self.cnn = models.resnet101(pretrained=True).to(DEVICE)
                 """
                 ResNet101的classifier
                     (fc): Linear(in_features=2048, out_features=1000, bias=True)
                 """
-            elif args.cnn_type == 'ResNet152':
+            elif cnn_type == 'ResNet152':
                 self.cnn = models.resnet152(pretrained=True).to(DEVICE)
 
             # 在ResNet后面接一个映射层
@@ -95,19 +96,23 @@ class ImageEncoder(nn.Module):
         features = self.dropout(features)
         features = F.normalize(features , p=2 , dim=1)
         
-
         return features
     
 class TextEncoder(nn.Module):
-    def __init__(self , vocab_size , word_dim , embed_size , num_layers):
+    def __init__(self , vocab_size , word_dim , embed_size , num_layers , rnn_mean_pool , bidirection_rnn):
         super(TextEncoder , self).__init__()
         self.embed_size = embed_size
         self.embed = nn.Embedding(vocab_size , word_dim)
-        self.embed.weight.data.uniform_(-0.1, 0.1)        
-        self.rnn = nn.GRU(word_dim , embed_size , num_layers , batch_first=True)
+        self.embed.weight.data.uniform_(-0.1, 0.1)
+        if bidirection_rnn:        
+            self.rnn = nn.GRU(word_dim , embed_size , num_layers , batch_first=True , bidirectional=True)
+            self.linear = nn.Linear(2 * embed_size , embed_size)
+        else:
+            self.rnn = nn.GRU(word_dim , embed_size , num_layers , batch_first=True)
+            self.linear = nn.Linear(embed_size , embed_size)            
         self.dropout = nn.Dropout(p=0.2)
-        self.linear = nn.Linear(embed_size , embed_size)
         self.relu = nn.ReLU(inplace=True)
+        self.rnn_mean_pool = rnn_mean_pool
 
     def forward(self , text , lengths):
         embed = self.embed(text)
@@ -117,7 +122,7 @@ class TextEncoder(nn.Module):
         """
             直接用还是跟以前一样，加入pack_padded_sequence只是为了压缩，加速rnn计算,还是得使用torch.gather抽取句子原本最后一位
         """
-        if args.rnn_mean_pool:
+        if self.rnn_mean_pool:
             I = torch.LongTensor(lengths).view(-1,1)
             # 创建掩码张量
             mask = (torch.arange(output.shape[1])[None, :] < I[:, None]).float().squeeze(1).to(DEVICE)
@@ -135,6 +140,76 @@ class TextEncoder(nn.Module):
         output = F.normalize(output , p=2 , dim=1)
 
         return output
+
+class Attention_TextEncoder(nn.Module):
+    def __init__(self , vocab_size , word_dim , embed_size , num_heads , num_layers):
+        super(Attention_TextEncoder , self).__init__()
+        # Embedding层
+        self.embed = nn.Embedding(vocab_size , word_dim)
+        # Position编码
+        self.positional_encoding = PositionalEncoding(word_dim)
+        # 多头注意力层
+        self.attention_blocks = nn.ModuleList([
+            AttentionBlock(word_dim , num_heads , embed_size) for _ in range(num_layers)
+        ])
+        # 映射对齐层
+        self.linear = nn.Linear(word_dim , embed_size)
+    
+    def forward(self , x , lengths):
+        x = self.embed(x)
+        x = self.positional_encoding(x)
+        for attention_block in self.attention_blocks:
+            x = attention_block(x)
+        x = self.linear(x[: , 0]) # 取<start>
+
+        return x
+
+class AttentionBlock(nn.Module):
+    def __init__(self , embed_dim , num_heads , hidden_dim):
+        super(AttentionBlock , self).__init__()
+
+        # 多头注意力层
+        self.multihead_attention = nn.MultiheadAttention(embed_dim , num_heads)
+        # 前馈层
+        self.feedforward = nn.Sequential(
+            nn.Linear(embed_dim , hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim , embed_dim)
+        )
+        # 层标准化 layer norm
+        self.norm = nn.LayerNorm(embed_dim)
+    
+    def forward(self , x):
+        # 多头注意力机制
+        residual = x
+        x = self.norm(x)
+        x , _ = self.multihead_attention(x , x , x) # qkv
+        x += residual # 残差
+
+        # 前馈层
+        residual = x
+        x = self.norm(x)
+        x = self.feedforward(x)
+        x += residual
+
+        return x
+
+class PositionalEncoding(nn.Module):
+    def __init__(self , embed_dim , max_len=5000):
+        super(PositionalEncoding , self).__init__()
+        pos_encodings = torch.zeros(max_len , embed_dim)
+        positions = torch.arange(0 , max_len).unsqueeze(1).float()
+        div_term = torch.exp(torch.arange(0 , embed_dim , 2).float() * (-math.log(10000.0) / embed_dim))
+        pos_encodings[: , 0::2] = torch.sin(positions * div_term)
+        pos_encodings[:, 1::2] = torch.cos(positions * div_term)
+        pos_encodings = pos_encodings.unsqueeze(0)
+
+        self.register_buffer('pos_encodings' , pos_encodings)
+
+    def forward(self , x):
+        x += self.pos_encodings[: , :x.size(1)].clone().detach()
+        return x
+
         
 def cosine_sim(im , cap): # 只有ContrastiveLoss类中使用
     """
@@ -181,7 +256,6 @@ class InfoNCE_contrastiveLoss(nn.Module):
         super(InfoNCE_contrastiveLoss , self).__init__()
         self.loss_calcer = InfoNCE(temperature , reduction , negative_mode)
 
-
     # ????? 不对劲这里
     def forward(self , im , cap):
         all_loss = torch.zeros(im.shape[0] * 2) # (2*batch_size)
@@ -219,25 +293,22 @@ class InfoNCE_contrastiveLoss(nn.Module):
 #         return (loss_im + loss_cap) / 2
     
 class VSE(object):
-    def __init__(self , embed_size , finetune ,  word_dim , num_layers , vocab_size , margin , max_violation , grad_clip):
+    def __init__(
+        self , embed_size , finetune ,  word_dim , num_layers , vocab_size , 
+        margin , max_violation , grad_clip , use_InfoNCE_loss , rnn_mean_pool , 
+        bidirection_rnn , cnn_type , use_attention_for_text , num_heads
+    ):
         self.grad_clip = grad_clip
-
-
-        self.image_encoder = ImageEncoder(embed_size , finetune).to(DEVICE)
-        self.text_encoder = TextEncoder(vocab_size , word_dim , embed_size , num_layers).to(DEVICE)
-        # device_ids = [0 , 1 , 2 , 3] 
-        # self.image_encoder = nn.DataParallel(self.image_encoder, device_ids=device_ids).cuda()
-        # self.text_encoder = nn.DataParallel(self.image_encoder, device_ids=device_ids).cuda()
-
-        if not args.use_InfoNCE_loss:
-            self.contrastive_loss = ContrastiveLoss(margin , max_violation)
+        self.use_InfoNCE_loss = use_InfoNCE_loss
+        self.image_encoder = ImageEncoder(embed_size , cnn_type , finetune).to(DEVICE)
+        if not use_attention_for_text:
+            self.text_encoder = TextEncoder(vocab_size , word_dim , embed_size , num_layers , rnn_mean_pool , bidirection_rnn).to(DEVICE)
         else:
-            self.contrastive_loss = InfoNCE_contrastiveLoss(
-                args.temperature,
-                args.reduction,
-            )
-
+            self.text_encoder = Attention_TextEncoder(vocab_size , word_dim , embed_size , num_heads , num_layers).to(DEVICE)
+        self.temperature = nn.Parameter(torch.FloatTensor([args.temperature])) # 准备把这个系数加入训练
         self.params = list(self.image_encoder.parameters()) + list(self.text_encoder.parameters())
+        self.params.append(self.temperature) # 加入温度系数
+
         self.optimizer = torch.optim.Adam(self.params , lr=args.lr)
         self.whole_iters = 0
 
@@ -263,6 +334,14 @@ class VSE(object):
         """
             计算图片和文本的位置目标
         """
+        if not self.use_InfoNCE_loss:
+            self.contrastive_loss = ContrastiveLoss(margin , max_violation)
+        else:
+            self.contrastive_loss = InfoNCE_contrastiveLoss(
+                self.temperature.cpu().item(),
+                args.reduction,
+            )
+
         images = images.to(DEVICE)
         captions = captions.to(DEVICE)
         im_features = self.image_encoder(images)
@@ -287,6 +366,8 @@ class VSE(object):
         self.logger.update('lr', self.optimizer.param_groups[0]['lr'])
 
         im_features , cap_features = self.forward(images , captions , lengths)
+        # print("DEBUG: " , (im_features == 0).sum(dim=1))
+        # print("DEBUG: " , (cap_features == 0).sum(dim=1))
         self.optimizer.zero_grad()
         loss = self.calc_loss(im_features , cap_features)
         loss.backward()

@@ -1,7 +1,7 @@
 import argparse
-from pprint import pprint
 
 parser = argparse.ArgumentParser()
+
 parser.add_argument("--gpu" , type=str , default="0" , help="choose the index of the gpu used to run")
 parser.add_argument("--lr" , type=float , default=0.001 , help="learning rate for train")
 parser.add_argument("--log_dir", type=str , default="./tensorboard_logger/" , help="directory path for generate logging information")
@@ -25,10 +25,8 @@ parser.add_argument("--use_InfoNCE_loss" , action='store_true' , default=False ,
 parser.add_argument("--temperature" , type=float , default=0.1 , help='float 0-1, One of the parameters of the loss function——InfoNCE')
 parser.add_argument("--reduction" , type=str , default='mean' , help='str, One of the parameters of the loss function——InfoNCE')
 parser.add_argument("--negative_mode" , type=str , default='unpaired' , help='str, One of the parameters of the loss function——InfoNCE')
-parser.add_argument("--cnn_type" , type=str , default='ResNet101' , help='choose the cnn backbone for VSE ( VGG19 , ResNet101 , ResNet152 )') 
-
+parser.add_argument("--cnn_type" , type=str , default='ResNet101' , help='choose the cnn backbone for VSE ( VGG19 , ResNet101 , ResNet152 )')
+parser.add_argument("--use_attention_for_text" , action='store_true' , default=False , help='choose to use GRU or self-attention for textEncoding') 
+parser.add_argument("--num_heads" , type=int , default=3 , help='heads num of multihead-attention') 
 
 args = parser.parse_args()
-print("-----------------------------------------------")
-pprint(args)
-print("-----------------------------------------------")

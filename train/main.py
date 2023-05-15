@@ -35,7 +35,13 @@ def main():
         vocab_size,
         args.margin,
         args.max_violation,
-        args.grad_clip
+        args.grad_clip,
+        args.use_InfoNCE_loss,
+        args.rnn_mean_pool,
+        args.bidirection_rnn,
+        args.cnn_type,
+        args.use_attention_for_text,
+        args.num_heads
     )
 
     # 训练模型
@@ -46,7 +52,7 @@ def main():
             model.optimizer,
             epoch
         )
-        train(
+        main_train(
             args.log_step,
             args.val_step,
             train_loader,
@@ -76,7 +82,7 @@ def adjust_learning_rate(old_lr , optimizer , epoch):
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
 
-def train(log_step , val_step , train_loader , val_loader , model , epoch):
+def main_train(log_step , val_step , train_loader , val_loader , model , epoch):
     batch_time = AverageMeter()
     data_time = AverageMeter()
     train_logger = LogCollector()
@@ -158,7 +164,10 @@ def validate(log_step , val_loader , model):
 def save_checkpoint(state , is_best , file_name='checkpoint.pth.tar' , prefix='' ):
     torch.save(state , os.path.join(os.path.join(prefix , f'GPU{args.gpu}') , file_name))
     if is_best:
-        shutil.copyfile(os.path.join(os.path.join(prefix , f'GPU{args.gpu}') , file_name) , os.path.join(prefix , f'GPU{args.gpu}') + 'model_best.pth.tar')
+        shutil.copyfile(
+            os.path.join(os.path.join(prefix , f'GPU{args.gpu}') , file_name), 
+            os.path.join(os.path.join(prefix , f'GPU{args.gpu}') , 'model_best.pth.tar')
+        )
 
 
 if __name__ == '__main__':
@@ -167,6 +176,10 @@ if __name__ == '__main__':
     torch.cuda.manual_seed(16)
     np.random.seed(16)
     # 开始训练
+    print("-----------------------------------------------")
+    pprint(args)
+    print("-----------------------------------------------")
+
     main()
 
     print("-----------------------------------------------")
