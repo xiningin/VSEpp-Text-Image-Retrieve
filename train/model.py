@@ -80,7 +80,6 @@ class ImageEncoder(nn.Module):
             raise ValueError('Invalid model name') 
 
         self.relu = nn.ReLU(inplace=True)
-        self.dropout = nn.Dropout(p=0.2)
 
         # 使用Xavier初始化fc层
         r = np.sqrt(6.) / np.sqrt(self.mapping.in_features + self.mapping.out_features)
@@ -90,10 +89,7 @@ class ImageEncoder(nn.Module):
     def forward(self , images):
         features = self.cnn(images)
         features = self.relu(features)
-        # features = F.normalize(features , p=2 , dim=1)
         features = self.mapping(features)
-        features = self.relu(features)
-        features = self.dropout(features)
         features = F.normalize(features , p=2 , dim=1)
         
         return features
@@ -110,8 +106,6 @@ class TextEncoder(nn.Module):
         else:
             self.rnn = nn.GRU(word_dim , embed_size , num_layers , batch_first=True)
             self.linear = nn.Linear(embed_size , embed_size)            
-        self.dropout = nn.Dropout(p=0.2)
-        self.relu = nn.ReLU(inplace=True)
         self.rnn_mean_pool = rnn_mean_pool
 
     def forward(self , text , lengths):
@@ -135,8 +129,6 @@ class TextEncoder(nn.Module):
             output = torch.gather(output , 1 , I).squeeze(1)
         
         output = self.linear(output)
-        output = self.relu(output)
-        output = self.dropout(output)
         output = F.normalize(output , p=2 , dim=1)
 
         return output
@@ -215,7 +207,11 @@ def cosine_sim(im , cap): # 只有ContrastiveLoss类中使用
     """
         计算图片和文本的余弦相似度
     """
-    return F.cosine_similarity(im.unsqueeze(1) , cap.unsqueeze(0) , dim=2) # 得到[batch_size , batch_size]
+    im_norm = im.norm(dim=1)
+    cap_norm = cap.norm(dim=1)
+    sim_score = torch.mm(im , cap.t()) / ((im_norm * cap_norm).unsqueeze(0) + 1e-6)
+    return sim_score
+
 
 class ContrastiveLoss(nn.Module):
     """
@@ -242,9 +238,14 @@ class ContrastiveLoss(nn.Module):
         cost_cap = cost_cap.masked_fill_(I , 0)
         cost_img = cost_img.masked_fill_(I , 0)
 
-        if self.max_violation:
+        if self.max_violation: # 试试先用一般训练，再后面使用max_violation
             cost_cap = cost_cap.max(1)[0] # 以图搜文时
             cost_img = cost_img.max(0)[0] # 以文搜图时
+
+        # if cost_cap.mean() + cost_img.mean() == torch.FloatTensor([0.4000]).to(DEVICE):
+        #     # 很容易最大的那一个直接与负样本拉开0.2了， 把sim_score和posi_for_cap学成0
+        #     print(sim_score)
+        #     print(posi_for_cap)
     
         return cost_cap.mean() + cost_img.mean()
 
@@ -256,22 +257,21 @@ class InfoNCE_contrastiveLoss(nn.Module):
         super(InfoNCE_contrastiveLoss , self).__init__()
         self.loss_calcer = InfoNCE(temperature , reduction , negative_mode)
 
-    # ????? 不对劲这里
     def forward(self , im , cap):
         all_loss = torch.zeros(im.shape[0] * 2) # (2*batch_size)
         # 以图搜文
         for index , im_item in enumerate(im):
-            neg_cap = im[torch.arange(cap.shape[0]) != index]
+            neg_cap = cap[torch.arange(cap.shape[0]) != index]
             all_loss[index] = self.loss_calcer(im_item.view(1,-1) , cap[index].view(1,-1) , neg_cap)
         # 以文搜图
         for index , cap_item in enumerate(cap):
-            neg_im = cap[torch.arange(im.shape[0]) != index]
+            neg_im = im[torch.arange(im.shape[0]) != index]
             all_loss[cap.shape[0]+index] = self.loss_calcer(cap_item.view(1,-1) , im[index].view(1,-1) , neg_im)
 
         return all_loss.mean()
 
 
-# # 用CLIP中的伪代码重写了一个损失函数试试
+# 用CLIP中的伪代码重写了一个损失函数试试
 # class InfoNCE_contrastiveLoss(nn.Module):
 #     """
 #         使用InfoNCE对比损失
@@ -298,6 +298,8 @@ class VSE(object):
         margin , max_violation , grad_clip , use_InfoNCE_loss , rnn_mean_pool , 
         bidirection_rnn , cnn_type , use_attention_for_text , num_heads
     ):
+        self.margin = margin
+        self.max_violation = max_violation
         self.grad_clip = grad_clip
         self.use_InfoNCE_loss = use_InfoNCE_loss
         self.image_encoder = ImageEncoder(embed_size , cnn_type , finetune).to(DEVICE)
@@ -335,7 +337,7 @@ class VSE(object):
             计算图片和文本的位置目标
         """
         if not self.use_InfoNCE_loss:
-            self.contrastive_loss = ContrastiveLoss(margin , max_violation)
+            self.contrastive_loss = ContrastiveLoss(self.margin , self.max_violation)
         else:
             self.contrastive_loss = InfoNCE_contrastiveLoss(
                 self.temperature.cpu().item(),

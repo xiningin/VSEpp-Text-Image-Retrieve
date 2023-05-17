@@ -34,7 +34,7 @@ def main():
         args.num_layers,
         vocab_size,
         args.margin,
-        args.max_violation,
+        False, # max_violation
         args.grad_clip,
         args.use_InfoNCE_loss,
         args.rnn_mean_pool,
@@ -52,6 +52,11 @@ def main():
             model.optimizer,
             epoch
         )
+
+        # 如果有的话就在第10个epoch这里开始使用max_violation
+        if epoch >= 9:
+            model.max_violation = args.max_violation
+
         main_train(
             args.log_step,
             args.val_step,
