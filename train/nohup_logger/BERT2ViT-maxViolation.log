@@ -1,0 +1,77 @@
+nohup: ignoring input
+2023-05-26 15:06:58.075153: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-05-26 15:06:58.128995: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-26 15:06:58.897627: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+-----------------------------------------------
+Namespace(batch_size=128, bidirection_rnn=False, cnn_type='VGG19', embed_size=1024, finetune=False, gpu='0', grad_clip=2.0, log_dir='./tensorboard_logger/', log_step=10, lr=0.0002, lr_decay_step=10, margin=0.2, max_violation=False, model_class='CNN_and_BERT', negative_mode='unpaired', num_epochs=30, num_heads=3, num_layers=2, reduction='mean', rnn_mean_pool=False, temperature=0.1, use_InfoNCE_loss=True, use_attention_for_text=False, use_word2vec=False, val_step=500, vocab_path='../vocab/', word_dim=300, workers=5)
+-----------------------------------------------
+Traceback (most recent call last):
+  File "main.py", line 226, in <module>
+    main()
+  File "main.py", line 98, in main
+    main_train(
+  File "main.py", line 135, in main_train
+    for i , train_data in enumerate(train_loader):
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1199, in _next_data
+    return self._process_data(data)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1225, in _process_data
+    data.reraise()
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/torch/_utils.py", line 429, in reraise
+    raise self.exc_type(msg)
+requests.exceptions.SSLError: Caught SSLError in DataLoader worker process 0.
+Original urllib3.exceptions.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2635)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /bert-base-uncased/resolve/main/tokenizer_config.json (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2635)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 202, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/data2/zhouchengxing/image_text_retrieval/train/bert_cnn_data_process.py", line 56, in collate_fn
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/auto/tokenization_auto.py", line 643, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/utils/hub.py", line 417, in cached_file
+    resolved_file = hf_hub_download(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 120, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 120, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1532, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 407, in _request_wrapper
+    response = _request_wrapper(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 442, in _request_wrapper
+    return http_backoff(
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/huggingface_hub/utils/_http.py", line 212, in http_backoff
+    response = session.request(method=method, url=url, **kwargs)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /bert-base-uncased/resolve/main/tokenizer_config.json (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2635)')))
+

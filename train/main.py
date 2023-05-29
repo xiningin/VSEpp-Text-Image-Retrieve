@@ -2,8 +2,12 @@ import os
 import torch
 import time
 import data_process
+import transformer_data_process 
+import bert_cnn_data_process
 from vocab import Vocabulary
 from model import VSE
+from transformer_model import transformer_VSE
+from bert_cnn_model import BERT_CNN_VSE
 from param import args
 import logging
 import tensorboard_logger as tb_logger
@@ -14,35 +18,73 @@ import shutil
 from pprint import pprint
 
 
+
 def main():
     logging.basicConfig(format='%(asctime)s %(message)s' , level=logging.INFO)
     tb_logger.configure(os.path.join(args.log_dir , f'GPU{args.gpu}') , flush_secs=5)
-    # 加载词汇表
-    vocab = pickle.load(open(os.path.join(args.vocab_path , 'flickr30k_vocab.pkl') , 'rb'))
-    vocab_size = len(vocab)
-    # 加载DataLoader
-    train_loader , val_loader = data_process.get_train_dev_loader(
-        vocab,
-        args.batch_size,
-        args.workers
-    )
-    # 构建模型
-    model = VSE(
-        args.embed_size,
-        args.finetune,
-        args.word_dim,
-        args.num_layers,
-        vocab_size,
-        args.margin,
-        False, # max_violation
-        args.grad_clip,
-        args.use_InfoNCE_loss,
-        args.rnn_mean_pool,
-        args.bidirection_rnn,
-        args.cnn_type,
-        args.use_attention_for_text,
-        args.num_heads
-    )
+
+    if args.model_class == 'CNN_and_GRU':
+        # 加载词汇表
+        vocab = pickle.load(open(os.path.join(args.vocab_path , 'flickr30k_vocab.pkl') , 'rb'))
+        vocab_size = len(vocab)
+        # 加载DataLoader
+        train_loader , val_loader = data_process.get_train_dev_loader(
+            vocab,
+            args.batch_size,
+            args.workers
+        )
+        # 构建模型
+        model = VSE(
+            args.embed_size,
+            args.finetune,
+            args.word_dim,
+            args.num_layers,
+            vocab,
+            args.margin,
+            args.max_violation, 
+            args.grad_clip,
+            args.use_InfoNCE_loss,
+            args.rnn_mean_pool,
+            args.bidirection_rnn,
+            args.use_word2vec,
+            args.cnn_type,
+            args.use_attention_for_text,
+            args.num_heads
+        )
+    elif args.model_class == 'ViT_and_BERT':
+        # 加载DataLoader
+        train_loader , val_loader = transformer_data_process.get_train_dev_loader(
+            args.batch_size,
+            args.workers
+        )
+        # 构建模型
+        model = transformer_VSE(
+            args.embed_size,
+            args.finetune, 
+            args.margin,
+            args.max_violation, 
+            args.grad_clip,
+            args.use_InfoNCE_loss       
+        )
+    elif args.model_class == 'CNN_and_BERT':
+        # 加载DataLoader
+        train_loader , val_loader = bert_cnn_data_process.get_train_dev_loader(
+            args.batch_size,
+            args.workers
+        )
+        # 构建模型
+        model = BERT_CNN_VSE(
+            args.embed_size,
+            args.finetune, 
+            args.margin,
+            args.max_violation, 
+            args.grad_clip,
+            args.use_InfoNCE_loss,
+            args.cnn_type       
+        )
+    else:
+        raise ValueError('Wrong model class !! It must be in (CNN_and_GRU , ViT_and_BERT , CNN_and_BERT)')
+
 
     # 训练模型
     best_rsum = 0
@@ -52,10 +94,6 @@ def main():
             model.optimizer,
             epoch
         )
-
-        # 如果有的话就在第10个epoch这里开始使用max_violation
-        if epoch >= 9:
-            model.max_violation = args.max_violation
 
         main_train(
             args.log_step,
@@ -84,6 +122,10 @@ def main():
 
 def adjust_learning_rate(old_lr , optimizer , epoch):
     lr = old_lr * (0.5 ** (epoch // args.lr_decay_step))
+    # lr = old_lr
+    # if epoch > (2/3)*args.num_epochs:
+    #     lr = old_lr * 0.1
+
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
 
@@ -94,6 +136,10 @@ def main_train(log_step , val_step , train_loader , val_loader , model , epoch):
 
     model.train_model()
     timer = time.time()
+    # 训练充足再使用max_violation
+    if args.max_violation_in_middle and epoch > (1/3)*args.num_epochs: # 尽量在过拟合之前切换max_violation
+        model.use_InfoNCE_loss = True
+
     for i , train_data in enumerate(train_loader):
         data_time.update(time.time() - timer)
         model.logger = train_logger

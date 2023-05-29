@@ -8,7 +8,8 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 from torch.autograd import Variable
 from torch.nn.utils import clip_grad_norm_
 from info_nce import InfoNCE
-import math
+import gensim
+import os
 
 
 if args.gpu.lower() == 'cpu':
@@ -25,7 +26,9 @@ class ImageEncoder(nn.Module):
         self.embed_size = embed_size
         if cnn_type == 'VGG19':
             self.cnn = models.vgg19(pretrained=True).to(DEVICE)
-
+            self.cnn.classifier = nn.Sequential(
+                *list(self.cnn.classifier.children())[:-1]
+            )
             """out_features
             VGG19的classifier
                 (classifier): Sequential(
@@ -64,20 +67,25 @@ class ImageEncoder(nn.Module):
 
             # 在ResNet后面接一个映射层
             self.mapping = nn.Linear(
-                self.cnn.fc.out_features,
+                self.cnn.fc.in_features,
                 embed_size,
                 bias=True
             )
-            # 设置ResNet的classifier是否参与训练
+            self.cnn.fc = nn.Sequential()
+
+            # 设置ResNet是否参与训练
             for param in self.cnn.parameters():
                 param.requires_grad = finetune
 
-            # 分类层作为映射层参与训练
-            for param in self.cnn.fc.parameters():
-                param.requires_grad = True
-
         else:
             raise ValueError('Invalid model name') 
+
+        if finetune: # 要预训练这个的话需要较大显存，我用的显卡(2080 11GB)上支持不了，需要在多个卡上并行
+            """
+                VGG19：共计需要约27GB显存
+                ResNet152: 共计需要约34GB显存
+            """
+            self.cnn = nn.DataParallel(self.cnn)
 
         self.relu = nn.ReLU(inplace=True)
 
@@ -95,11 +103,29 @@ class ImageEncoder(nn.Module):
         return features
     
 class TextEncoder(nn.Module):
-    def __init__(self , vocab_size , word_dim , embed_size , num_layers , rnn_mean_pool , bidirection_rnn):
+    def __init__(self , vocab , word_dim , embed_size , num_layers , rnn_mean_pool , bidirection_rnn , use_word2vec):
         super(TextEncoder , self).__init__()
         self.embed_size = embed_size
-        self.embed = nn.Embedding(vocab_size , word_dim)
-        self.embed.weight.data.uniform_(-0.1, 0.1)
+        self.embed = nn.Embedding(len(vocab) , word_dim)
+        weights = torch.zeros(len(vocab), word_dim)
+        if use_word2vec:
+            if os.path.exists('../word2vec/google-news-300.pt'):
+                weights = torch.load('../word2vec/google-news-300.pt')
+            else: # 重新从预训练词向量赋值embedding需要接近一分钟
+                weights.uniform_(-0.1, 0.1)
+                print("Loading word vectors from word2vec-google-news-300!!!")
+                word_vectors = gensim.models.KeyedVectors.load_word2vec_format('../word2vec/GoogleNews-vectors-negative300.bin.gz', binary=True)
+                for word , idx in vocab.word2idx.items():
+                    if word == '<start>' or word == '<end>':
+                        weights[idx] = torch.FloatTensor(word_vectors['</s>'])
+                        continue
+                    if word not in word_vectors.key_to_index:
+                        continue
+                    weights[idx] = torch.FloatTensor(word_vectors[word])
+            print("Finished loading!!!")
+        # torch.save(weights , '../word2vec/google-news-300.pt')
+        self.embed.weight = nn.Parameter(weights)
+            
         if bidirection_rnn:        
             self.rnn = nn.GRU(word_dim , embed_size , num_layers , batch_first=True , bidirectional=True)
             self.linear = nn.Linear(2 * embed_size , embed_size)
@@ -113,103 +139,78 @@ class TextEncoder(nn.Module):
         packed = pack_padded_sequence(embed , lengths , batch_first=True)
         output , _ = self.rnn(packed)
         output , _ = pad_packed_sequence(output , batch_first=True) 
-        """
-            直接用还是跟以前一样，加入pack_padded_sequence只是为了压缩，加速rnn计算,还是得使用torch.gather抽取句子原本最后一位
-        """
+
         if self.rnn_mean_pool:
             I = torch.LongTensor(lengths).view(-1,1)
-            # 创建掩码张量
-            mask = (torch.arange(output.shape[1])[None, :] < I[:, None]).float().squeeze(1).to(DEVICE)
-            output_masked = output * mask.unsqueeze(-1)
-            output = torch.sum(output_masked , dim=1)
+            output = torch.sum(output , dim=1)
             output = torch.div(output , I.expand_as(output).to(DEVICE))
         else:
-            I = torch.LongTensor(lengths).view(-1 , 1 , 1)
-            I = Variable(I.expand(I.shape[0] , 1 , output.shape[2]) - 1).to(DEVICE)
-            output = torch.gather(output , 1 , I).squeeze(1)
+            pass
         
         output = self.linear(output)
         output = F.normalize(output , p=2 , dim=1)
 
         return output
 
+
 class Attention_TextEncoder(nn.Module):
-    def __init__(self , vocab_size , word_dim , embed_size , num_heads , num_layers):
+    def __init__(self , vocab , word_dim , embed_size , num_heads , num_layers , use_word2vec , rnn_mean_pool):
         super(Attention_TextEncoder , self).__init__()
         # Embedding层
-        self.embed = nn.Embedding(vocab_size , word_dim)
-        # Position编码
-        self.positional_encoding = PositionalEncoding(word_dim)
-        # 多头注意力层
-        self.attention_blocks = nn.ModuleList([
-            AttentionBlock(word_dim , num_heads , embed_size) for _ in range(num_layers)
-        ])
+        self.embed = nn.Embedding(len(vocab) , word_dim)
+        weights = torch.zeros(len(vocab), word_dim)
+        if use_word2vec:
+            if os.path.exists('../word2vec/google-news-300.pt'):
+                weights = torch.load('../word2vec/google-news-300.pt')
+            else: # 重新从预训练词向量赋值embedding需要接近一分钟
+                weights.uniform_(-0.1, 0.1)
+                print("Loading word vectors from word2vec-google-news-300!!!")
+                word_vectors = gensim.models.KeyedVectors.load_word2vec_format('../word2vec/GoogleNews-vectors-negative300.bin.gz', binary=True)
+                for word , idx in vocab.word2idx.items():
+                    if word == '<start>' or word == '<end>':
+                        weights[idx] = torch.FloatTensor(word_vectors['</s>'])
+                        continue
+                    if word not in word_vectors.key_to_index:
+                        continue
+                    weights[idx] = torch.FloatTensor(word_vectors[word])
+            print("Finished loading!!!")
+        self.embed.weight = nn.Parameter(weights)
+        atte_layer = nn.TransformerEncoderLayer(d_model=word_dim , nhead=num_heads) 
+        self.encoder = nn.TransformerEncoder(atte_layer , num_layers=num_layers) # 输入数据的形状为(seq_length, batch_size, d_model)
+
         # 映射对齐层
         self.linear = nn.Linear(word_dim , embed_size)
+
+        self.rnn_mean_pool = rnn_mean_pool
     
     def forward(self , x , lengths):
         x = self.embed(x)
-        x = self.positional_encoding(x)
-        for attention_block in self.attention_blocks:
-            x = attention_block(x)
-        x = self.linear(x[: , 0]) # 取<start>
+        x = self.encoder(x.transpose(0 , 1)) # (seq_length, batch_size, d_model) -> torch.Size([31, 128, 300])
+        x = x.transpose(0 , 1) # -> torch.Size([128, 31, 300])
+        if self.rnn_mean_pool:
+            I = torch.LongTensor(lengths).view(-1 , 1)
+            # 创建掩码张量
+            mask = (torch.arange(x.shape[1])[None , :] < I[: , None]).float().squeeze(1).to(DEVICE)
+            output_masked = x * mask.unsqueeze(-1)
+            x = torch.sum(output_masked , dim=1)
+            x = torch.div(x , I.expand_as(x).to(DEVICE)) # 与之前的GRU一样所有有效加和
+            x = self.linear(x) # 映射到对其层
+        else:
+            x = self.linear(x[: , 0 , :]) # 取第一个代表整个句子的含义
 
-        return x
-
-class AttentionBlock(nn.Module):
-    def __init__(self , embed_dim , num_heads , hidden_dim):
-        super(AttentionBlock , self).__init__()
-
-        # 多头注意力层
-        self.multihead_attention = nn.MultiheadAttention(embed_dim , num_heads)
-        # 前馈层
-        self.feedforward = nn.Sequential(
-            nn.Linear(embed_dim , hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim , embed_dim)
-        )
-        # 层标准化 layer norm
-        self.norm = nn.LayerNorm(embed_dim)
-    
-    def forward(self , x):
-        # 多头注意力机制
-        residual = x
-        x = self.norm(x)
-        x , _ = self.multihead_attention(x , x , x) # qkv
-        x += residual # 残差
-
-        # 前馈层
-        residual = x
-        x = self.norm(x)
-        x = self.feedforward(x)
-        x += residual
-
-        return x
-
-class PositionalEncoding(nn.Module):
-    def __init__(self , embed_dim , max_len=5000):
-        super(PositionalEncoding , self).__init__()
-        pos_encodings = torch.zeros(max_len , embed_dim)
-        positions = torch.arange(0 , max_len).unsqueeze(1).float()
-        div_term = torch.exp(torch.arange(0 , embed_dim , 2).float() * (-math.log(10000.0) / embed_dim))
-        pos_encodings[: , 0::2] = torch.sin(positions * div_term)
-        pos_encodings[:, 1::2] = torch.cos(positions * div_term)
-        pos_encodings = pos_encodings.unsqueeze(0)
-
-        self.register_buffer('pos_encodings' , pos_encodings)
-
-    def forward(self , x):
-        x += self.pos_encodings[: , :x.size(1)].clone().detach()
+        x = F.normalize(x , p=2 , dim=1)
         return x
 
         
 def cosine_sim(im , cap): # 只有ContrastiveLoss类中使用
     """
         计算图片和文本的余弦相似度
+        im : (batch_size , embed_dim)
+        cap : (batch_size , embed_dim)
     """
-    im_norm = im.norm(dim=1)
-    cap_norm = cap.norm(dim=1)
-    sim_score = torch.mm(im , cap.t()) / ((im_norm * cap_norm).unsqueeze(0) + 1e-6)
+    im_norm = im.norm(dim=1).unsqueeze(1).expand_as(im) + 1e-6
+    cap_norm = cap.norm(dim=1).unsqueeze(1).expand_as(cap) + 1e-6
+    sim_score = torch.mm(im/im_norm , (cap/cap_norm).t()) 
     return sim_score
 
 
@@ -238,9 +239,11 @@ class ContrastiveLoss(nn.Module):
         cost_cap = cost_cap.masked_fill_(I , 0)
         cost_img = cost_img.masked_fill_(I , 0)
 
-        if self.max_violation: # 试试先用一般训练，再后面使用max_violation
+        if self.max_violation: # 试试先用一般训练，再后面使用max_violation(失败)
             cost_cap = cost_cap.max(1)[0] # 以图搜文时
             cost_img = cost_img.max(0)[0] # 以文搜图时
+            # print(cost_cap , cost_cap.shape)
+            # print(cost_img , cost_img.shape)
 
         # if cost_cap.mean() + cost_img.mean() == torch.FloatTensor([0.4000]).to(DEVICE):
         #     # 很容易最大的那一个直接与负样本拉开0.2了， 把sim_score和posi_for_cap学成0
@@ -294,9 +297,9 @@ class InfoNCE_contrastiveLoss(nn.Module):
     
 class VSE(object):
     def __init__(
-        self , embed_size , finetune ,  word_dim , num_layers , vocab_size , 
+        self , embed_size , finetune ,  word_dim , num_layers , vocab , 
         margin , max_violation , grad_clip , use_InfoNCE_loss , rnn_mean_pool , 
-        bidirection_rnn , cnn_type , use_attention_for_text , num_heads
+        bidirection_rnn , use_word2vec, cnn_type , use_attention_for_text , num_heads
     ):
         self.margin = margin
         self.max_violation = max_violation
@@ -304,9 +307,9 @@ class VSE(object):
         self.use_InfoNCE_loss = use_InfoNCE_loss
         self.image_encoder = ImageEncoder(embed_size , cnn_type , finetune).to(DEVICE)
         if not use_attention_for_text:
-            self.text_encoder = TextEncoder(vocab_size , word_dim , embed_size , num_layers , rnn_mean_pool , bidirection_rnn).to(DEVICE)
+            self.text_encoder = TextEncoder(vocab , word_dim , embed_size , num_layers , rnn_mean_pool , bidirection_rnn , use_word2vec).to(DEVICE)
         else:
-            self.text_encoder = Attention_TextEncoder(vocab_size , word_dim , embed_size , num_heads , num_layers).to(DEVICE)
+            self.text_encoder = Attention_TextEncoder(vocab , word_dim , embed_size , num_heads , num_layers , use_word2vec , rnn_mean_pool).to(DEVICE)
         self.temperature = nn.Parameter(torch.FloatTensor([args.temperature])) # 准备把这个系数加入训练
         self.params = list(self.image_encoder.parameters()) + list(self.text_encoder.parameters())
         self.params.append(self.temperature) # 加入温度系数
@@ -330,7 +333,7 @@ class VSE(object):
     
     def val_model(self):
         self.image_encoder.eval()
-        self.text_encoder.eval()
+        
 
     def forward(self , images , captions , lengths):
         """
@@ -362,17 +365,16 @@ class VSE(object):
     def train(self , images , captions , lengths):
         self.train_model()
 
-        
         self.whole_iters += 1
         self.logger.update('Iteration', self.whole_iters)
         self.logger.update('lr', self.optimizer.param_groups[0]['lr'])
 
         im_features , cap_features = self.forward(images , captions , lengths)
-        # print("DEBUG: " , (im_features == 0).sum(dim=1))
-        # print("DEBUG: " , (cap_features == 0).sum(dim=1))
         self.optimizer.zero_grad()
         loss = self.calc_loss(im_features , cap_features)
         loss.backward()
         if self.grad_clip:
             clip_grad_norm_(self.params , self.grad_clip)
         self.optimizer.step()
+
+    

@@ -1,13 +1,17 @@
 import os
 import pickle
 import torch
-from param import args
 from collections import OrderedDict
 import numpy as np
 import time
-from data_process import get_test_loader
+import data_process
+import transformer_data_process 
+import bert_cnn_data_process
 from model import VSE
+from transformer_model import transformer_VSE
+from bert_cnn_model import BERT_CNN_VSE
 from pprint import pprint
+from param import args
 
 
 
@@ -169,30 +173,71 @@ def evalrank(model_path):
     pprint(old_args)
     print("-----------------------------------------------")
 
-    model = VSE(
-        old_args.embed_size,
-        old_args.finetune,
-        old_args.word_dim,
-        old_args.num_layers,
-        old_args.vocab_size,
-        old_args.margin,
-        old_args.max_violation,
-        old_args.grad_clip,
-        old_args.use_InfoNCE_loss,
-        old_args.rnn_mean_pool,
-        old_args.bidirection_rnn,
-        old_args.cnn_type,
-        old_args.use_attention_for_text,
-        old_args.num_heads
-    )
+    if old_args.model_class == 'CNN_and_GRU':
+        # 构建模型
+        model = VSE(
+            old_args.embed_size,
+            old_args.finetune,
+            old_args.word_dim,
+            old_args.num_layers,
+            vocab,
+            old_args.margin,
+            old_args.max_violation,
+            old_args.grad_clip,
+            old_args.use_InfoNCE_loss,
+            old_args.rnn_mean_pool,
+            old_args.bidirection_rnn,
+            old_args.use_word2vec,
+            old_args.cnn_type,
+            old_args.use_attention_for_text,
+            old_args.num_heads
+        )
+    elif old_args.model_class == 'ViT_and_BERT':
+        # 构建模型
+        model = transformer_VSE(
+            old_args.embed_size,
+            old_args.finetune, 
+            old_args.margin,
+            old_args.max_violation, 
+            old_args.grad_clip,
+            old_args.use_InfoNCE_loss       
+        )
+    elif old_args.model_class == 'CNN_and_BERT':
+        # 构建模型
+        model = BERT_CNN_VSE(
+            old_args.embed_size,
+            old_args.finetune, 
+            old_args.margin,
+            old_args.max_violation, 
+            old_args.grad_clip,
+            old_args.use_InfoNCE_loss,
+            old_args.cnn_type       
+        )
+    else:
+        raise ValueError('Wrong model class !! It must be in (CNN_and_GRU , ViT_and_BERT , CNN_and_BERT)')
+
     model.load_state_dict(checkpoint['model'])
 
     print('Loading dataset')
-    data_loader = get_test_loader(
-        vocab,
-        old_args.batch_size,
-        old_args.workers
-    )
+
+    if old_args.model_class == 'CNN_and_GRU':
+        data_loader = data_process.get_test_loader(
+            vocab,
+            old_args.batch_size,
+            old_args.workers
+        )
+    elif old_args.model_class == 'ViT_and_BERT':
+        data_loader = transformer_data_process.get_test_loader(
+            old_args.batch_size,
+            old_args.workers            
+        )
+    elif old_args.model_class == 'CNN_and_BERT':
+        data_loader = bert_cnn_data_process.get_test_loader(
+            old_args.batch_size,
+            old_args.workers            
+        )
+    else:
+        raise ValueError('Wrong model class !! It must be in (CNN_and_GRU , ViT_and_BERT , CNN_and_BERT)')
 
     print('Computing result....')
     img_embs , cap_embs = encode_data(model , data_loader)

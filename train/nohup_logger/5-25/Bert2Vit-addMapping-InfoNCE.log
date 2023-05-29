@@ -1,0 +1,1114 @@
+nohup: ignoring input
+2023-05-25 22:21:22.841556: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-05-25 22:21:22.894058: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-25 22:21:23.667469: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+-----------------------------------------------
+Namespace(batch_size=128, bidirection_rnn=False, cnn_type='VGG19', embed_size=1024, finetune=False, gpu='0', grad_clip=2.0, log_dir='./tensorboard_logger/', log_step=10, lr=0.0002, lr_decay_step=15, margin=0.2, max_violation=False, negative_mode='unpaired', num_epochs=20, num_heads=3, num_layers=2, reduction='mean', rnn_mean_pool=False, temperature=0.1, use_InfoNCE_loss=True, use_attention_for_text=False, use_transformer_model=True, use_word2vec=False, val_step=500, vocab_path='../vocab/', word_dim=300, workers=5)
+-----------------------------------------------
+2023-05-25 22:22:10,494 Epoch: [0][9/1133]	Loss: 4.4551 (4.7579)	Batch_time 0.883 (3.583)	Data_time 0.001 (1.296)	
+2023-05-25 22:22:20,502 Epoch: [0][19/1133]	Loss: 3.8649 (4.4393)	Batch_time 0.946 (2.292)	Data_time 0.001 (0.688)	
+2023-05-25 22:22:30,533 Epoch: [0][29/1133]	Loss: 3.4710 (4.1922)	Batch_time 0.923 (1.862)	Data_time 0.000 (0.486)	
+2023-05-25 22:22:41,919 Epoch: [0][39/1133]	Loss: 3.4639 (3.9994)	Batch_time 0.886 (1.681)	Data_time 0.000 (0.385)	
+2023-05-25 22:22:51,829 Epoch: [0][49/1133]	Loss: 3.1749 (3.8403)	Batch_time 0.864 (1.543)	Data_time 0.000 (0.324)	
+2023-05-25 22:23:01,556 Epoch: [0][59/1133]	Loss: 2.9072 (3.7141)	Batch_time 0.916 (1.448)	Data_time 0.000 (0.285)	
+2023-05-25 22:23:11,247 Epoch: [0][69/1133]	Loss: 3.0162 (3.6143)	Batch_time 0.873 (1.380)	Data_time 0.000 (0.255)	
+2023-05-25 22:23:21,228 Epoch: [0][79/1133]	Loss: 2.8353 (3.5342)	Batch_time 0.893 (1.332)	Data_time 0.001 (0.233)	
+2023-05-25 22:23:32,108 Epoch: [0][89/1133]	Loss: 2.7723 (3.4543)	Batch_time 0.928 (1.305)	Data_time 0.000 (0.216)	
+2023-05-25 22:23:41,891 Epoch: [0][99/1133]	Loss: 2.7894 (3.3787)	Batch_time 0.883 (1.272)	Data_time 0.001 (0.203)	
+2023-05-25 22:23:51,466 Epoch: [0][109/1133]	Loss: 2.6868 (3.3149)	Batch_time 0.929 (1.244)	Data_time 0.000 (0.192)	
+2023-05-25 22:24:01,244 Epoch: [0][119/1133]	Loss: 2.5456 (3.2634)	Batch_time 0.898 (1.222)	Data_time 0.000 (0.182)	
+2023-05-25 22:24:10,791 Epoch: [0][129/1133]	Loss: 2.7421 (3.2091)	Batch_time 0.885 (1.201)	Data_time 0.000 (0.174)	
+2023-05-25 22:24:21,311 Epoch: [0][139/1133]	Loss: 2.5215 (3.1599)	Batch_time 0.890 (1.190)	Data_time 0.000 (0.168)	
+2023-05-25 22:24:31,019 Epoch: [0][149/1133]	Loss: 2.6636 (3.1188)	Batch_time 0.925 (1.176)	Data_time 0.000 (0.162)	
+2023-05-25 22:24:40,823 Epoch: [0][159/1133]	Loss: 2.5208 (3.0782)	Batch_time 0.892 (1.164)	Data_time 0.000 (0.157)	
+2023-05-25 22:24:50,691 Epoch: [0][169/1133]	Loss: 2.3720 (3.0388)	Batch_time 0.905 (1.153)	Data_time 0.000 (0.153)	
+2023-05-25 22:25:00,367 Epoch: [0][179/1133]	Loss: 2.7117 (3.0075)	Batch_time 0.878 (1.143)	Data_time 0.000 (0.149)	
+2023-05-25 22:25:10,023 Epoch: [0][189/1133]	Loss: 2.5780 (2.9775)	Batch_time 0.890 (1.133)	Data_time 0.000 (0.145)	
+2023-05-25 22:25:20,065 Epoch: [0][199/1133]	Loss: 2.4357 (2.9448)	Batch_time 0.906 (1.127)	Data_time 0.000 (0.142)	
+2023-05-25 22:25:30,637 Epoch: [0][209/1133]	Loss: 2.4901 (2.9180)	Batch_time 0.890 (1.124)	Data_time 0.000 (0.139)	
+2023-05-25 22:25:40,663 Epoch: [0][219/1133]	Loss: 2.2542 (2.8908)	Batch_time 0.968 (1.118)	Data_time 0.000 (0.137)	
+2023-05-25 22:25:50,554 Epoch: [0][229/1133]	Loss: 2.4093 (2.8622)	Batch_time 0.933 (1.113)	Data_time 0.000 (0.134)	
+2023-05-25 22:26:00,542 Epoch: [0][239/1133]	Loss: 2.3359 (2.8419)	Batch_time 0.920 (1.108)	Data_time 0.000 (0.132)	
+2023-05-25 22:26:10,423 Epoch: [0][249/1133]	Loss: 2.2574 (2.8204)	Batch_time 0.923 (1.103)	Data_time 0.001 (0.130)	
+2023-05-25 22:26:20,193 Epoch: [0][259/1133]	Loss: 2.5495 (2.8020)	Batch_time 0.900 (1.098)	Data_time 0.000 (0.129)	
+2023-05-25 22:26:30,826 Epoch: [0][269/1133]	Loss: 2.2844 (2.7814)	Batch_time 0.874 (1.097)	Data_time 0.000 (0.127)	
+2023-05-25 22:26:40,810 Epoch: [0][279/1133]	Loss: 2.2559 (2.7615)	Batch_time 0.893 (1.093)	Data_time 0.000 (0.126)	
+2023-05-25 22:26:50,649 Epoch: [0][289/1133]	Loss: 2.0800 (2.7449)	Batch_time 0.898 (1.090)	Data_time 0.000 (0.124)	
+2023-05-25 22:27:00,733 Epoch: [0][299/1133]	Loss: 2.1604 (2.7242)	Batch_time 0.998 (1.087)	Data_time 0.000 (0.123)	
+2023-05-25 22:27:10,554 Epoch: [0][309/1133]	Loss: 2.3687 (2.7069)	Batch_time 0.881 (1.084)	Data_time 0.000 (0.122)	
+2023-05-25 22:27:21,272 Epoch: [0][319/1133]	Loss: 1.9647 (2.6893)	Batch_time 0.952 (1.083)	Data_time 0.000 (0.121)	
+2023-05-25 22:27:31,249 Epoch: [0][329/1133]	Loss: 2.3053 (2.6750)	Batch_time 0.938 (1.081)	Data_time 0.001 (0.119)	
+2023-05-25 22:27:41,598 Epoch: [0][339/1133]	Loss: 2.0329 (2.6573)	Batch_time 0.963 (1.079)	Data_time 0.000 (0.118)	
+2023-05-25 22:27:51,821 Epoch: [0][349/1133]	Loss: 2.2082 (2.6427)	Batch_time 0.882 (1.078)	Data_time 0.000 (0.117)	
+2023-05-25 22:28:01,801 Epoch: [0][359/1133]	Loss: 2.0875 (2.6287)	Batch_time 0.880 (1.075)	Data_time 0.000 (0.116)	
+2023-05-25 22:28:11,834 Epoch: [0][369/1133]	Loss: 1.9480 (2.6160)	Batch_time 0.916 (1.073)	Data_time 0.000 (0.115)	
+2023-05-25 22:28:22,157 Epoch: [0][379/1133]	Loss: 1.8204 (2.6012)	Batch_time 0.963 (1.072)	Data_time 0.000 (0.115)	
+2023-05-25 22:28:32,872 Epoch: [0][389/1133]	Loss: 2.1039 (2.5885)	Batch_time 0.919 (1.072)	Data_time 0.000 (0.114)	
+2023-05-25 22:28:42,931 Epoch: [0][399/1133]	Loss: 2.1600 (2.5764)	Batch_time 0.978 (1.071)	Data_time 0.001 (0.113)	
+2023-05-25 22:28:53,008 Epoch: [0][409/1133]	Loss: 2.0501 (2.5636)	Batch_time 0.897 (1.069)	Data_time 0.000 (0.112)	
+2023-05-25 22:29:02,943 Epoch: [0][419/1133]	Loss: 2.0286 (2.5519)	Batch_time 0.924 (1.067)	Data_time 0.000 (0.112)	
+2023-05-25 22:29:13,111 Epoch: [0][429/1133]	Loss: 2.2621 (2.5404)	Batch_time 0.872 (1.066)	Data_time 0.000 (0.111)	
+2023-05-25 22:29:23,035 Epoch: [0][439/1133]	Loss: 1.8094 (2.5265)	Batch_time 0.866 (1.064)	Data_time 0.000 (0.110)	
+2023-05-25 22:29:33,368 Epoch: [0][449/1133]	Loss: 2.1245 (2.5165)	Batch_time 0.905 (1.064)	Data_time 0.000 (0.110)	
+2023-05-25 22:29:44,217 Epoch: [0][459/1133]	Loss: 2.1198 (2.5058)	Batch_time 0.912 (1.064)	Data_time 0.000 (0.109)	
+2023-05-25 22:29:53,954 Epoch: [0][469/1133]	Loss: 1.9372 (2.4953)	Batch_time 0.885 (1.062)	Data_time 0.000 (0.108)	
+2023-05-25 22:30:03,754 Epoch: [0][479/1133]	Loss: 1.9670 (2.4850)	Batch_time 0.871 (1.061)	Data_time 0.000 (0.108)	
+2023-05-25 22:30:13,994 Epoch: [0][489/1133]	Loss: 1.9330 (2.4758)	Batch_time 0.977 (1.060)	Data_time 0.000 (0.107)	
+2023-05-25 22:30:24,164 Epoch: [0][499/1133]	Loss: 2.2256 (2.4664)	Batch_time 0.960 (1.059)	Data_time 0.001 (0.107)	
+2023-05-25 22:30:27,484 Test: [0/40]	 Loss : 2.3928 (2.3928)	Time 3.317 (3.317)	
+2023-05-25 22:30:32,768 Test: [10/40]	 Loss : 2.4264 (2.5722)	Time 5.284 (2.924)	
+2023-05-25 22:30:39,228 Test: [20/40]	 Loss : 2.5872 (2.5874)	Time 6.460 (3.167)	
+2023-05-25 22:30:45,313 Test: [30/40]	 Loss : 2.6030 (2.6609)	Time 6.084 (3.200)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 22:30:51,641 Image to caption: 20.4, 46.9, 59.8, 6.0, 31.0
+2023-05-25 22:30:52,517 Caption to image: 16.0, 41.3, 54.9, 8.0, 34.0
+2023-05-25 22:31:02,387 Epoch: [0][509/1133]	Loss: 1.9673 (2.4564)	Batch_time 0.919 (1.113)	Data_time 0.000 (0.162)	
+2023-05-25 22:31:12,378 Epoch: [0][519/1133]	Loss: 1.9413 (2.4447)	Batch_time 0.889 (1.111)	Data_time 0.000 (0.161)	
+2023-05-25 22:31:22,104 Epoch: [0][529/1133]	Loss: 1.8675 (2.4357)	Batch_time 0.888 (1.108)	Data_time 0.000 (0.159)	
+2023-05-25 22:31:32,940 Epoch: [0][539/1133]	Loss: 2.0515 (2.4287)	Batch_time 0.880 (1.108)	Data_time 0.000 (0.158)	
+2023-05-25 22:31:42,655 Epoch: [0][549/1133]	Loss: 1.7651 (2.4194)	Batch_time 0.875 (1.105)	Data_time 0.001 (0.156)	
+2023-05-25 22:31:52,349 Epoch: [0][559/1133]	Loss: 1.7729 (2.4107)	Batch_time 0.879 (1.103)	Data_time 0.000 (0.155)	
+2023-05-25 22:32:02,239 Epoch: [0][569/1133]	Loss: 2.0825 (2.4016)	Batch_time 0.944 (1.101)	Data_time 0.000 (0.154)	
+2023-05-25 22:32:12,044 Epoch: [0][579/1133]	Loss: 1.8538 (2.3923)	Batch_time 0.868 (1.099)	Data_time 0.000 (0.152)	
+2023-05-25 22:32:21,758 Epoch: [0][589/1133]	Loss: 1.7718 (2.3834)	Batch_time 0.865 (1.097)	Data_time 0.000 (0.151)	
+2023-05-25 22:32:31,446 Epoch: [0][599/1133]	Loss: 2.2305 (2.3765)	Batch_time 0.895 (1.095)	Data_time 0.000 (0.150)	
+2023-05-25 22:32:42,291 Epoch: [0][609/1133]	Loss: 1.8587 (2.3689)	Batch_time 0.914 (1.094)	Data_time 0.000 (0.149)	
+2023-05-25 22:32:52,290 Epoch: [0][619/1133]	Loss: 1.9327 (2.3610)	Batch_time 0.948 (1.093)	Data_time 0.001 (0.148)	
+2023-05-25 22:33:02,434 Epoch: [0][629/1133]	Loss: 2.0787 (2.3528)	Batch_time 0.867 (1.092)	Data_time 0.000 (0.147)	
+2023-05-25 22:33:12,247 Epoch: [0][639/1133]	Loss: 1.9051 (2.3451)	Batch_time 0.871 (1.090)	Data_time 0.000 (0.146)	
+2023-05-25 22:33:22,108 Epoch: [0][649/1133]	Loss: 1.9269 (2.3384)	Batch_time 0.872 (1.088)	Data_time 0.000 (0.145)	
+2023-05-25 22:33:32,007 Epoch: [0][659/1133]	Loss: 1.6857 (2.3308)	Batch_time 0.915 (1.087)	Data_time 0.000 (0.144)	
+2023-05-25 22:33:42,483 Epoch: [0][669/1133]	Loss: 2.0208 (2.3240)	Batch_time 0.856 (1.086)	Data_time 0.000 (0.143)	
+2023-05-25 22:33:52,253 Epoch: [0][679/1133]	Loss: 1.8328 (2.3172)	Batch_time 0.908 (1.085)	Data_time 0.000 (0.142)	
+2023-05-25 22:34:02,374 Epoch: [0][689/1133]	Loss: 2.0176 (2.3098)	Batch_time 0.933 (1.084)	Data_time 0.000 (0.141)	
+2023-05-25 22:34:12,573 Epoch: [0][699/1133]	Loss: 1.8679 (2.3036)	Batch_time 0.948 (1.083)	Data_time 0.000 (0.141)	
+2023-05-25 22:34:22,097 Epoch: [0][709/1133]	Loss: 1.7017 (2.2968)	Batch_time 0.866 (1.081)	Data_time 0.000 (0.140)	
+2023-05-25 22:34:32,468 Epoch: [0][719/1133]	Loss: 1.8657 (2.2905)	Batch_time 0.861 (1.080)	Data_time 0.000 (0.139)	
+2023-05-25 22:34:42,221 Epoch: [0][729/1133]	Loss: 1.6761 (2.2845)	Batch_time 0.875 (1.079)	Data_time 0.000 (0.138)	
+2023-05-25 22:34:52,097 Epoch: [0][739/1133]	Loss: 1.9982 (2.2785)	Batch_time 0.921 (1.078)	Data_time 0.000 (0.137)	
+2023-05-25 22:35:02,225 Epoch: [0][749/1133]	Loss: 1.6922 (2.2721)	Batch_time 0.939 (1.077)	Data_time 0.000 (0.136)	
+2023-05-25 22:35:11,873 Epoch: [0][759/1133]	Loss: 1.7206 (2.2667)	Batch_time 0.853 (1.075)	Data_time 0.000 (0.136)	
+2023-05-25 22:35:21,630 Epoch: [0][769/1133]	Loss: 1.9955 (2.2611)	Batch_time 0.926 (1.074)	Data_time 0.000 (0.135)	
+2023-05-25 22:35:31,654 Epoch: [0][779/1133]	Loss: 1.7862 (2.2552)	Batch_time 0.878 (1.073)	Data_time 0.000 (0.134)	
+2023-05-25 22:35:42,042 Epoch: [0][789/1133]	Loss: 1.7699 (2.2495)	Batch_time 1.679 (1.073)	Data_time 0.001 (0.134)	
+2023-05-25 22:35:51,591 Epoch: [0][799/1133]	Loss: 1.6968 (2.2442)	Batch_time 0.871 (1.071)	Data_time 0.000 (0.133)	
+2023-05-25 22:36:01,022 Epoch: [0][809/1133]	Loss: 1.7784 (2.2387)	Batch_time 0.870 (1.070)	Data_time 0.000 (0.132)	
+2023-05-25 22:36:10,586 Epoch: [0][819/1133]	Loss: 1.7536 (2.2331)	Batch_time 0.859 (1.068)	Data_time 0.000 (0.131)	
+2023-05-25 22:36:20,269 Epoch: [0][829/1133]	Loss: 1.7463 (2.2272)	Batch_time 0.951 (1.067)	Data_time 0.001 (0.131)	
+2023-05-25 22:36:29,776 Epoch: [0][839/1133]	Loss: 1.6076 (2.2217)	Batch_time 0.856 (1.066)	Data_time 0.000 (0.130)	
+2023-05-25 22:36:39,343 Epoch: [0][849/1133]	Loss: 1.5609 (2.2162)	Batch_time 0.868 (1.064)	Data_time 0.001 (0.130)	
+2023-05-25 22:36:49,853 Epoch: [0][859/1133]	Loss: 1.9035 (2.2110)	Batch_time 0.855 (1.064)	Data_time 0.000 (0.129)	
+2023-05-25 22:36:59,459 Epoch: [0][869/1133]	Loss: 1.7505 (2.2056)	Batch_time 0.882 (1.063)	Data_time 0.000 (0.129)	
+2023-05-25 22:37:09,050 Epoch: [0][879/1133]	Loss: 1.7906 (2.2006)	Batch_time 0.855 (1.062)	Data_time 0.001 (0.128)	
+2023-05-25 22:37:18,633 Epoch: [0][889/1133]	Loss: 1.9148 (2.1959)	Batch_time 0.857 (1.061)	Data_time 0.000 (0.127)	
+2023-05-25 22:37:28,402 Epoch: [0][899/1133]	Loss: 1.8274 (2.1911)	Batch_time 0.868 (1.060)	Data_time 0.000 (0.127)	
+2023-05-25 22:37:38,037 Epoch: [0][909/1133]	Loss: 1.6434 (2.1862)	Batch_time 0.885 (1.059)	Data_time 0.000 (0.126)	
+2023-05-25 22:37:48,634 Epoch: [0][919/1133]	Loss: 1.9899 (2.1819)	Batch_time 0.896 (1.059)	Data_time 0.000 (0.126)	
+2023-05-25 22:37:58,593 Epoch: [0][929/1133]	Loss: 1.7300 (2.1773)	Batch_time 0.854 (1.058)	Data_time 0.001 (0.125)	
+2023-05-25 22:38:08,547 Epoch: [0][939/1133]	Loss: 1.5541 (2.1728)	Batch_time 0.935 (1.057)	Data_time 0.000 (0.125)	
+2023-05-25 22:38:18,700 Epoch: [0][949/1133]	Loss: 1.6445 (2.1677)	Batch_time 0.959 (1.057)	Data_time 0.000 (0.124)	
+2023-05-25 22:38:28,232 Epoch: [0][959/1133]	Loss: 1.8640 (2.1631)	Batch_time 0.850 (1.056)	Data_time 0.000 (0.124)	
+2023-05-25 22:38:38,919 Epoch: [0][969/1133]	Loss: 1.6963 (2.1578)	Batch_time 0.935 (1.056)	Data_time 0.000 (0.124)	
+2023-05-25 22:38:48,695 Epoch: [0][979/1133]	Loss: 1.7351 (2.1528)	Batch_time 0.855 (1.055)	Data_time 0.000 (0.123)	
+2023-05-25 22:38:58,444 Epoch: [0][989/1133]	Loss: 1.6892 (2.1483)	Batch_time 0.861 (1.054)	Data_time 0.000 (0.123)	
+2023-05-25 22:39:08,554 Epoch: [0][999/1133]	Loss: 1.5940 (2.1439)	Batch_time 0.924 (1.054)	Data_time 0.001 (0.122)	
+2023-05-25 22:39:22,104 Test: [0/40]	 Loss : 2.3789 (2.3789)	Time 13.548 (13.548)	
+2023-05-25 22:39:27,828 Test: [10/40]	 Loss : 2.5051 (2.5045)	Time 5.723 (3.934)	
+2023-05-25 22:39:33,866 Test: [20/40]	 Loss : 2.4762 (2.5005)	Time 6.038 (3.571)	
+2023-05-25 22:39:41,005 Test: [30/40]	 Loss : 2.5464 (2.5665)	Time 7.138 (3.803)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 22:39:47,208 Image to caption: 25.8, 53.5, 67.1, 5.0, 25.0
+2023-05-25 22:39:48,213 Caption to image: 20.1, 47.5, 61.2, 6.0, 27.0
+2023-05-25 22:39:57,915 Epoch: [0][1009/1133]	Loss: 1.6501 (2.1397)	Batch_time 0.868 (1.092)	Data_time 0.000 (0.161)	
+2023-05-25 22:40:07,464 Epoch: [0][1019/1133]	Loss: 1.5846 (2.1356)	Batch_time 0.860 (1.091)	Data_time 0.000 (0.160)	
+2023-05-25 22:40:17,298 Epoch: [0][1029/1133]	Loss: 1.6551 (2.1311)	Batch_time 0.921 (1.090)	Data_time 0.000 (0.160)	
+2023-05-25 22:40:27,024 Epoch: [0][1039/1133]	Loss: 1.6251 (2.1270)	Batch_time 0.906 (1.089)	Data_time 0.000 (0.159)	
+2023-05-25 22:40:37,041 Epoch: [0][1049/1133]	Loss: 1.7830 (2.1239)	Batch_time 0.938 (1.088)	Data_time 0.000 (0.158)	
+2023-05-25 22:40:47,805 Epoch: [0][1059/1133]	Loss: 1.5437 (2.1194)	Batch_time 0.875 (1.088)	Data_time 0.000 (0.158)	
+2023-05-25 22:40:57,516 Epoch: [0][1069/1133]	Loss: 1.8456 (2.1156)	Batch_time 0.866 (1.087)	Data_time 0.000 (0.157)	
+2023-05-25 22:41:07,107 Epoch: [0][1079/1133]	Loss: 1.9010 (2.1122)	Batch_time 0.894 (1.086)	Data_time 0.000 (0.156)	
+2023-05-25 22:41:16,683 Epoch: [0][1089/1133]	Loss: 1.6691 (2.1087)	Batch_time 0.862 (1.084)	Data_time 0.000 (0.156)	
+2023-05-25 22:41:26,306 Epoch: [0][1099/1133]	Loss: 1.8702 (2.1055)	Batch_time 0.860 (1.083)	Data_time 0.000 (0.155)	
+2023-05-25 22:41:35,948 Epoch: [0][1109/1133]	Loss: 1.5967 (2.1016)	Batch_time 0.859 (1.082)	Data_time 0.000 (0.154)	
+2023-05-25 22:41:45,710 Epoch: [0][1119/1133]	Loss: 1.7490 (2.0980)	Batch_time 0.878 (1.081)	Data_time 0.000 (0.154)	
+2023-05-25 22:41:55,957 Epoch: [0][1129/1133]	Loss: 1.7605 (2.0938)	Batch_time 0.860 (1.081)	Data_time 0.000 (0.153)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 22:42:01,849 Test: [0/40]	 Loss : 2.3438 (2.3438)	Time 3.153 (3.153)	
+2023-05-25 22:42:07,238 Test: [10/40]	 Loss : 2.4636 (2.4639)	Time 5.388 (2.934)	
+2023-05-25 22:42:13,284 Test: [20/40]	 Loss : 2.4063 (2.4612)	Time 6.046 (3.059)	
+2023-05-25 22:42:19,451 Test: [30/40]	 Loss : 2.6068 (2.5397)	Time 6.167 (3.145)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 22:42:25,808 Image to caption: 26.5, 54.4, 68.1, 4.0, 24.0
+2023-05-25 22:42:26,833 Caption to image: 21.7, 48.7, 62.1, 6.0, 26.0
+2023-05-25 22:42:37,881 Epoch: [1][6/1133]	Loss: 1.5241 (1.4917)	Batch_time 0.987 (1.391)	Data_time 0.000 (0.474)	
+2023-05-25 22:42:49,255 Epoch: [1][16/1133]	Loss: 1.2418 (1.4398)	Batch_time 0.935 (1.242)	Data_time 0.001 (0.246)	
+2023-05-25 22:42:59,060 Epoch: [1][26/1133]	Loss: 1.4744 (1.4492)	Batch_time 0.882 (1.145)	Data_time 0.000 (0.187)	
+2023-05-25 22:43:08,831 Epoch: [1][36/1133]	Loss: 1.5219 (1.4556)	Batch_time 0.979 (1.100)	Data_time 0.000 (0.159)	
+2023-05-25 22:43:18,976 Epoch: [1][46/1133]	Loss: 1.5232 (1.4552)	Batch_time 0.864 (1.082)	Data_time 0.000 (0.146)	
+2023-05-25 22:43:29,079 Epoch: [1][56/1133]	Loss: 1.6027 (1.4549)	Batch_time 0.965 (1.069)	Data_time 0.001 (0.137)	
+2023-05-25 22:43:39,184 Epoch: [1][66/1133]	Loss: 1.2710 (1.4570)	Batch_time 0.887 (1.060)	Data_time 0.000 (0.129)	
+2023-05-25 22:43:50,117 Epoch: [1][76/1133]	Loss: 1.3652 (1.4433)	Batch_time 0.892 (1.065)	Data_time 0.000 (0.124)	
+2023-05-25 22:43:59,956 Epoch: [1][86/1133]	Loss: 1.6251 (1.4538)	Batch_time 0.909 (1.055)	Data_time 0.001 (0.120)	
+2023-05-25 22:44:10,104 Epoch: [1][96/1133]	Loss: 1.4163 (1.4556)	Batch_time 0.941 (1.051)	Data_time 0.000 (0.117)	
+2023-05-25 22:44:20,384 Epoch: [1][106/1133]	Loss: 1.5145 (1.4555)	Batch_time 0.887 (1.049)	Data_time 0.001 (0.115)	
+2023-05-25 22:44:30,218 Epoch: [1][116/1133]	Loss: 1.5858 (1.4584)	Batch_time 0.864 (1.043)	Data_time 0.000 (0.113)	
+2023-05-25 22:44:40,382 Epoch: [1][126/1133]	Loss: 1.4823 (1.4595)	Batch_time 0.899 (1.041)	Data_time 0.001 (0.111)	
+2023-05-25 22:44:51,628 Epoch: [1][136/1133]	Loss: 1.4361 (1.4631)	Batch_time 0.881 (1.047)	Data_time 0.000 (0.110)	
+2023-05-25 22:45:01,503 Epoch: [1][146/1133]	Loss: 1.5756 (1.4655)	Batch_time 0.895 (1.043)	Data_time 0.000 (0.108)	
+2023-05-25 22:45:11,239 Epoch: [1][156/1133]	Loss: 1.4145 (1.4661)	Batch_time 0.928 (1.039)	Data_time 0.000 (0.107)	
+2023-05-25 22:45:20,979 Epoch: [1][166/1133]	Loss: 1.4765 (1.4655)	Batch_time 0.883 (1.035)	Data_time 0.000 (0.105)	
+2023-05-25 22:45:30,693 Epoch: [1][176/1133]	Loss: 1.3637 (1.4656)	Batch_time 0.868 (1.031)	Data_time 0.000 (0.104)	
+2023-05-25 22:45:41,194 Epoch: [1][186/1133]	Loss: 1.9394 (1.4670)	Batch_time 1.714 (1.032)	Data_time 0.000 (0.104)	
+2023-05-25 22:45:50,773 Epoch: [1][196/1133]	Loss: 1.5684 (1.4766)	Batch_time 0.869 (1.029)	Data_time 0.000 (0.103)	
+2023-05-25 22:46:00,424 Epoch: [1][206/1133]	Loss: 1.4543 (1.4744)	Batch_time 0.882 (1.025)	Data_time 0.000 (0.102)	
+2023-05-25 22:46:09,932 Epoch: [1][216/1133]	Loss: 1.4138 (1.4713)	Batch_time 0.855 (1.022)	Data_time 0.000 (0.101)	
+2023-05-25 22:46:19,837 Epoch: [1][226/1133]	Loss: 1.5035 (1.4701)	Batch_time 0.894 (1.021)	Data_time 0.000 (0.101)	
+2023-05-25 22:46:29,408 Epoch: [1][236/1133]	Loss: 1.4514 (1.4680)	Batch_time 0.860 (1.018)	Data_time 0.000 (0.100)	
+2023-05-25 22:46:39,845 Epoch: [1][246/1133]	Loss: 1.6582 (1.4671)	Batch_time 0.838 (1.019)	Data_time 0.000 (0.100)	
+2023-05-25 22:46:49,360 Epoch: [1][256/1133]	Loss: 1.4574 (1.4680)	Batch_time 0.865 (1.016)	Data_time 0.000 (0.099)	
+2023-05-25 22:46:59,082 Epoch: [1][266/1133]	Loss: 1.5900 (1.4675)	Batch_time 0.862 (1.015)	Data_time 0.001 (0.099)	
+2023-05-25 22:47:08,715 Epoch: [1][276/1133]	Loss: 1.4516 (1.4670)	Batch_time 0.843 (1.013)	Data_time 0.000 (0.099)	
+2023-05-25 22:47:18,378 Epoch: [1][286/1133]	Loss: 1.4080 (1.4670)	Batch_time 0.877 (1.011)	Data_time 0.000 (0.098)	
+2023-05-25 22:47:27,973 Epoch: [1][296/1133]	Loss: 1.4124 (1.4670)	Batch_time 0.851 (1.010)	Data_time 0.000 (0.098)	
+2023-05-25 22:47:37,616 Epoch: [1][306/1133]	Loss: 1.4681 (1.4676)	Batch_time 0.861 (1.008)	Data_time 0.000 (0.097)	
+2023-05-25 22:47:48,075 Epoch: [1][316/1133]	Loss: 1.4652 (1.4670)	Batch_time 0.866 (1.009)	Data_time 0.000 (0.097)	
+2023-05-25 22:47:57,686 Epoch: [1][326/1133]	Loss: 1.5165 (1.4658)	Batch_time 0.865 (1.008)	Data_time 0.000 (0.097)	
+2023-05-25 22:48:07,324 Epoch: [1][336/1133]	Loss: 1.4623 (1.4662)	Batch_time 0.882 (1.006)	Data_time 0.000 (0.096)	
+2023-05-25 22:48:16,888 Epoch: [1][346/1133]	Loss: 1.5639 (1.4653)	Batch_time 0.864 (1.005)	Data_time 0.000 (0.096)	
+2023-05-25 22:48:26,466 Epoch: [1][356/1133]	Loss: 1.4740 (1.4659)	Batch_time 0.858 (1.004)	Data_time 0.000 (0.096)	
+2023-05-25 22:48:36,045 Epoch: [1][366/1133]	Loss: 1.4937 (1.4673)	Batch_time 0.851 (1.002)	Data_time 0.000 (0.095)	
+2023-05-25 22:48:39,471 Test: [0/40]	 Loss : 2.3432 (2.3432)	Time 3.423 (3.423)	
+2023-05-25 22:48:46,407 Test: [10/40]	 Loss : 2.4058 (2.4635)	Time 6.936 (4.034)	
+2023-05-25 22:48:52,024 Test: [20/40]	 Loss : 2.4279 (2.4383)	Time 5.617 (3.560)	
+2023-05-25 22:48:58,038 Test: [30/40]	 Loss : 2.5314 (2.5066)	Time 6.013 (3.478)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 22:49:04,541 Image to caption: 29.8, 57.9, 69.8, 4.0, 20.0
+2023-05-25 22:49:05,534 Caption to image: 23.3, 50.8, 63.2, 5.0, 25.0
+2023-05-25 22:49:15,113 Epoch: [1][376/1133]	Loss: 1.4606 (1.4668)	Batch_time 0.860 (1.079)	Data_time 0.000 (0.173)	
+2023-05-25 22:49:24,756 Epoch: [1][386/1133]	Loss: 1.6015 (1.4665)	Batch_time 0.862 (1.077)	Data_time 0.000 (0.171)	
+2023-05-25 22:49:34,300 Epoch: [1][396/1133]	Loss: 1.4992 (1.4657)	Batch_time 0.865 (1.073)	Data_time 0.000 (0.169)	
+2023-05-25 22:49:45,074 Epoch: [1][406/1133]	Loss: 1.2729 (1.4650)	Batch_time 0.883 (1.074)	Data_time 0.000 (0.167)	
+2023-05-25 22:49:54,851 Epoch: [1][416/1133]	Loss: 1.2456 (1.4634)	Batch_time 0.871 (1.071)	Data_time 0.000 (0.165)	
+2023-05-25 22:50:04,552 Epoch: [1][426/1133]	Loss: 1.3706 (1.4621)	Batch_time 0.906 (1.069)	Data_time 0.001 (0.163)	
+2023-05-25 22:50:14,064 Epoch: [1][436/1133]	Loss: 1.3943 (1.4626)	Batch_time 0.864 (1.066)	Data_time 0.000 (0.161)	
+2023-05-25 22:50:24,415 Epoch: [1][446/1133]	Loss: 1.2020 (1.4620)	Batch_time 0.867 (1.065)	Data_time 0.000 (0.160)	
+2023-05-25 22:50:33,989 Epoch: [1][456/1133]	Loss: 1.3358 (1.4614)	Batch_time 0.851 (1.063)	Data_time 0.000 (0.158)	
+2023-05-25 22:50:43,621 Epoch: [1][466/1133]	Loss: 1.5038 (1.4609)	Batch_time 0.859 (1.061)	Data_time 0.000 (0.157)	
+2023-05-25 22:50:53,269 Epoch: [1][476/1133]	Loss: 1.5684 (1.4609)	Batch_time 0.867 (1.059)	Data_time 0.000 (0.155)	
+2023-05-25 22:51:02,924 Epoch: [1][486/1133]	Loss: 1.4997 (1.4610)	Batch_time 0.885 (1.057)	Data_time 0.000 (0.154)	
+2023-05-25 22:51:13,457 Epoch: [1][496/1133]	Loss: 1.2136 (1.4600)	Batch_time 0.863 (1.057)	Data_time 0.000 (0.153)	
+2023-05-25 22:51:23,110 Epoch: [1][506/1133]	Loss: 1.3566 (1.4600)	Batch_time 0.855 (1.055)	Data_time 0.000 (0.151)	
+2023-05-25 22:51:32,727 Epoch: [1][516/1133]	Loss: 1.4489 (1.4588)	Batch_time 0.867 (1.053)	Data_time 0.000 (0.150)	
+2023-05-25 22:51:42,362 Epoch: [1][526/1133]	Loss: 1.7368 (1.4573)	Batch_time 0.903 (1.052)	Data_time 0.000 (0.149)	
+2023-05-25 22:51:51,980 Epoch: [1][536/1133]	Loss: 1.3435 (1.4561)	Batch_time 0.859 (1.050)	Data_time 0.001 (0.148)	
+2023-05-25 22:52:02,456 Epoch: [1][546/1133]	Loss: 1.3294 (1.4546)	Batch_time 0.854 (1.050)	Data_time 0.000 (0.147)	
+2023-05-25 22:52:12,112 Epoch: [1][556/1133]	Loss: 1.4286 (1.4537)	Batch_time 0.879 (1.048)	Data_time 0.001 (0.146)	
+2023-05-25 22:52:21,794 Epoch: [1][566/1133]	Loss: 1.2989 (1.4525)	Batch_time 0.868 (1.047)	Data_time 0.000 (0.145)	
+2023-05-25 22:52:31,283 Epoch: [1][576/1133]	Loss: 1.4032 (1.4512)	Batch_time 0.859 (1.045)	Data_time 0.000 (0.144)	
+2023-05-25 22:52:40,819 Epoch: [1][586/1133]	Loss: 1.4420 (1.4506)	Batch_time 0.900 (1.044)	Data_time 0.000 (0.143)	
+2023-05-25 22:52:51,265 Epoch: [1][596/1133]	Loss: 1.4029 (1.4499)	Batch_time 0.861 (1.044)	Data_time 0.000 (0.142)	
+2023-05-25 22:53:00,887 Epoch: [1][606/1133]	Loss: 1.2334 (1.4483)	Batch_time 0.887 (1.042)	Data_time 0.000 (0.141)	
+2023-05-25 22:53:10,315 Epoch: [1][616/1133]	Loss: 1.4360 (1.4475)	Batch_time 0.900 (1.041)	Data_time 0.000 (0.140)	
+2023-05-25 22:53:19,883 Epoch: [1][626/1133]	Loss: 1.2801 (1.4472)	Batch_time 0.886 (1.039)	Data_time 0.000 (0.139)	
+2023-05-25 22:53:29,391 Epoch: [1][636/1133]	Loss: 1.4292 (1.4460)	Batch_time 0.858 (1.038)	Data_time 0.000 (0.138)	
+2023-05-25 22:53:39,972 Epoch: [1][646/1133]	Loss: 1.2447 (1.4450)	Batch_time 0.860 (1.038)	Data_time 0.001 (0.137)	
+2023-05-25 22:53:49,439 Epoch: [1][656/1133]	Loss: 1.4810 (1.4446)	Batch_time 0.865 (1.037)	Data_time 0.000 (0.137)	
+2023-05-25 22:53:59,150 Epoch: [1][666/1133]	Loss: 1.2029 (1.4428)	Batch_time 0.880 (1.036)	Data_time 0.000 (0.136)	
+2023-05-25 22:54:08,745 Epoch: [1][676/1133]	Loss: 1.3913 (1.4428)	Batch_time 0.859 (1.035)	Data_time 0.000 (0.135)	
+2023-05-25 22:54:19,125 Epoch: [1][686/1133]	Loss: 1.4975 (1.4417)	Batch_time 0.875 (1.035)	Data_time 0.000 (0.134)	
+2023-05-25 22:54:28,692 Epoch: [1][696/1133]	Loss: 1.4066 (1.4408)	Batch_time 0.850 (1.034)	Data_time 0.000 (0.133)	
+2023-05-25 22:54:38,444 Epoch: [1][706/1133]	Loss: 1.4073 (1.4402)	Batch_time 0.859 (1.033)	Data_time 0.000 (0.133)	
+2023-05-25 22:54:48,222 Epoch: [1][716/1133]	Loss: 1.2325 (1.4392)	Batch_time 0.905 (1.032)	Data_time 0.000 (0.132)	
+2023-05-25 22:54:57,810 Epoch: [1][726/1133]	Loss: 1.2753 (1.4392)	Batch_time 0.854 (1.031)	Data_time 0.000 (0.131)	
+2023-05-25 22:55:08,338 Epoch: [1][736/1133]	Loss: 1.3875 (1.4390)	Batch_time 0.865 (1.031)	Data_time 0.001 (0.131)	
+2023-05-25 22:55:17,983 Epoch: [1][746/1133]	Loss: 1.3171 (1.4380)	Batch_time 0.861 (1.031)	Data_time 0.001 (0.130)	
+2023-05-25 22:55:27,527 Epoch: [1][756/1133]	Loss: 1.3668 (1.4375)	Batch_time 0.859 (1.030)	Data_time 0.000 (0.130)	
+2023-05-25 22:55:37,163 Epoch: [1][766/1133]	Loss: 1.5382 (1.4369)	Batch_time 0.862 (1.029)	Data_time 0.000 (0.129)	
+2023-05-25 22:55:46,601 Epoch: [1][776/1133]	Loss: 1.2773 (1.4363)	Batch_time 0.872 (1.028)	Data_time 0.000 (0.128)	
+2023-05-25 22:55:56,909 Epoch: [1][786/1133]	Loss: 1.2322 (1.4349)	Batch_time 0.853 (1.028)	Data_time 0.000 (0.128)	
+2023-05-25 22:56:06,390 Epoch: [1][796/1133]	Loss: 1.4159 (1.4340)	Batch_time 0.850 (1.027)	Data_time 0.000 (0.127)	
+2023-05-25 22:56:16,083 Epoch: [1][806/1133]	Loss: 1.3632 (1.4337)	Batch_time 0.876 (1.026)	Data_time 0.000 (0.127)	
+2023-05-25 22:56:25,688 Epoch: [1][816/1133]	Loss: 1.6987 (1.4338)	Batch_time 0.891 (1.025)	Data_time 0.000 (0.126)	
+2023-05-25 22:56:35,174 Epoch: [1][826/1133]	Loss: 1.2997 (1.4334)	Batch_time 0.863 (1.024)	Data_time 0.001 (0.126)	
+2023-05-25 22:56:45,490 Epoch: [1][836/1133]	Loss: 1.5395 (1.4328)	Batch_time 0.853 (1.024)	Data_time 0.001 (0.125)	
+2023-05-25 22:56:54,994 Epoch: [1][846/1133]	Loss: 1.3586 (1.4318)	Batch_time 0.860 (1.023)	Data_time 0.000 (0.125)	
+2023-05-25 22:57:04,431 Epoch: [1][856/1133]	Loss: 1.3254 (1.4316)	Batch_time 0.843 (1.022)	Data_time 0.000 (0.124)	
+2023-05-25 22:57:13,971 Epoch: [1][866/1133]	Loss: 1.5136 (1.4308)	Batch_time 0.850 (1.022)	Data_time 0.001 (0.124)	
+2023-05-25 22:57:17,331 Test: [0/40]	 Loss : 2.3272 (2.3272)	Time 3.358 (3.358)	
+2023-05-25 22:57:22,753 Test: [10/40]	 Loss : 2.4548 (2.4345)	Time 5.421 (2.970)	
+2023-05-25 22:57:29,657 Test: [20/40]	 Loss : 2.4010 (2.4156)	Time 6.904 (3.536)	
+2023-05-25 22:57:35,620 Test: [30/40]	 Loss : 2.4606 (2.4837)	Time 5.963 (3.467)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 22:57:41,832 Image to caption: 30.2, 59.4, 71.7, 4.0, 21.0
+2023-05-25 22:57:42,810 Caption to image: 23.2, 52.7, 66.0, 5.0, 25.0
+2023-05-25 22:57:52,475 Epoch: [1][876/1133]	Loss: 1.3718 (1.4300)	Batch_time 0.932 (1.054)	Data_time 0.000 (0.156)	
+2023-05-25 22:58:02,218 Epoch: [1][886/1133]	Loss: 1.4347 (1.4298)	Batch_time 0.867 (1.053)	Data_time 0.000 (0.156)	
+2023-05-25 22:58:11,848 Epoch: [1][896/1133]	Loss: 1.3604 (1.4300)	Batch_time 0.873 (1.052)	Data_time 0.000 (0.155)	
+2023-05-25 22:58:22,274 Epoch: [1][906/1133]	Loss: 1.3895 (1.4299)	Batch_time 0.851 (1.052)	Data_time 0.000 (0.154)	
+2023-05-25 22:58:31,941 Epoch: [1][916/1133]	Loss: 1.3113 (1.4290)	Batch_time 0.850 (1.051)	Data_time 0.000 (0.154)	
+2023-05-25 22:58:41,639 Epoch: [1][926/1133]	Loss: 1.3724 (1.4292)	Batch_time 0.863 (1.050)	Data_time 0.000 (0.153)	
+2023-05-25 22:58:51,406 Epoch: [1][936/1133]	Loss: 1.3908 (1.4286)	Batch_time 0.847 (1.049)	Data_time 0.000 (0.152)	
+2023-05-25 22:59:00,905 Epoch: [1][946/1133]	Loss: 1.2822 (1.4280)	Batch_time 0.858 (1.048)	Data_time 0.000 (0.151)	
+2023-05-25 22:59:10,438 Epoch: [1][956/1133]	Loss: 1.2339 (1.4273)	Batch_time 0.862 (1.047)	Data_time 0.000 (0.151)	
+2023-05-25 22:59:20,034 Epoch: [1][966/1133]	Loss: 1.3745 (1.4272)	Batch_time 0.860 (1.046)	Data_time 0.000 (0.150)	
+2023-05-25 22:59:30,365 Epoch: [1][976/1133]	Loss: 1.3440 (1.4267)	Batch_time 0.869 (1.046)	Data_time 0.000 (0.149)	
+2023-05-25 22:59:39,903 Epoch: [1][986/1133]	Loss: 1.6301 (1.4260)	Batch_time 0.878 (1.045)	Data_time 0.000 (0.149)	
+2023-05-25 22:59:49,414 Epoch: [1][996/1133]	Loss: 1.3284 (1.4254)	Batch_time 0.866 (1.044)	Data_time 0.000 (0.148)	
+2023-05-25 22:59:59,053 Epoch: [1][1006/1133]	Loss: 1.4023 (1.4248)	Batch_time 0.870 (1.044)	Data_time 0.000 (0.147)	
+2023-05-25 23:00:08,608 Epoch: [1][1016/1133]	Loss: 1.3078 (1.4239)	Batch_time 0.858 (1.043)	Data_time 0.000 (0.147)	
+2023-05-25 23:00:18,215 Epoch: [1][1026/1133]	Loss: 1.4351 (1.4239)	Batch_time 0.889 (1.042)	Data_time 0.001 (0.146)	
+2023-05-25 23:00:27,847 Epoch: [1][1036/1133]	Loss: 1.4168 (1.4235)	Batch_time 0.859 (1.041)	Data_time 0.000 (0.146)	
+2023-05-25 23:00:37,325 Epoch: [1][1046/1133]	Loss: 1.2499 (1.4226)	Batch_time 0.864 (1.040)	Data_time 0.000 (0.145)	
+2023-05-25 23:00:47,924 Epoch: [1][1056/1133]	Loss: 1.3217 (1.4221)	Batch_time 0.860 (1.040)	Data_time 0.000 (0.145)	
+2023-05-25 23:00:57,505 Epoch: [1][1066/1133]	Loss: 1.4106 (1.4212)	Batch_time 0.874 (1.040)	Data_time 0.000 (0.144)	
+2023-05-25 23:01:07,014 Epoch: [1][1076/1133]	Loss: 1.2448 (1.4202)	Batch_time 0.870 (1.039)	Data_time 0.000 (0.143)	
+2023-05-25 23:01:16,582 Epoch: [1][1086/1133]	Loss: 1.3862 (1.4192)	Batch_time 0.899 (1.038)	Data_time 0.000 (0.143)	
+2023-05-25 23:01:26,216 Epoch: [1][1096/1133]	Loss: 1.6420 (1.4186)	Batch_time 0.909 (1.037)	Data_time 0.000 (0.142)	
+2023-05-25 23:01:35,827 Epoch: [1][1106/1133]	Loss: 1.2645 (1.4177)	Batch_time 0.916 (1.037)	Data_time 0.001 (0.142)	
+2023-05-25 23:01:45,384 Epoch: [1][1116/1133]	Loss: 1.3920 (1.4170)	Batch_time 0.861 (1.036)	Data_time 0.000 (0.141)	
+2023-05-25 23:01:55,856 Epoch: [1][1126/1133]	Loss: 1.4282 (1.4168)	Batch_time 0.860 (1.036)	Data_time 0.000 (0.141)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:02:05,360 Test: [0/40]	 Loss : 2.3249 (2.3249)	Time 4.042 (4.042)	
+2023-05-25 23:02:10,852 Test: [10/40]	 Loss : 2.4250 (2.4520)	Time 5.492 (3.018)	
+2023-05-25 23:02:17,049 Test: [20/40]	 Loss : 2.4627 (2.4280)	Time 6.196 (3.170)	
+2023-05-25 23:02:23,109 Test: [30/40]	 Loss : 2.4663 (2.4930)	Time 6.059 (3.201)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:02:29,460 Image to caption: 30.5, 58.9, 71.2, 4.0, 20.0
+2023-05-25 23:02:30,440 Caption to image: 22.6, 52.1, 65.0, 5.0, 24.0
+2023-05-25 23:02:45,570 Epoch: [2][3/1133]	Loss: 1.1060 (1.2297)	Batch_time 0.904 (1.668)	Data_time 0.001 (0.757)	
+2023-05-25 23:02:55,757 Epoch: [2][13/1133]	Loss: 0.9718 (1.1267)	Batch_time 0.925 (1.204)	Data_time 0.000 (0.287)	
+2023-05-25 23:03:06,892 Epoch: [2][23/1133]	Loss: 1.1662 (1.0965)	Batch_time 0.878 (1.166)	Data_time 0.001 (0.205)	
+2023-05-25 23:03:16,943 Epoch: [2][33/1133]	Loss: 1.2186 (1.1067)	Batch_time 0.918 (1.119)	Data_time 0.000 (0.170)	
+2023-05-25 23:03:26,942 Epoch: [2][43/1133]	Loss: 1.1735 (1.1119)	Batch_time 0.908 (1.092)	Data_time 0.000 (0.152)	
+2023-05-25 23:03:37,194 Epoch: [2][53/1133]	Loss: 0.9479 (1.1021)	Batch_time 0.932 (1.080)	Data_time 0.001 (0.141)	
+2023-05-25 23:03:47,560 Epoch: [2][63/1133]	Loss: 1.1705 (1.1073)	Batch_time 0.966 (1.073)	Data_time 0.000 (0.133)	
+2023-05-25 23:03:58,968 Epoch: [2][73/1133]	Loss: 0.9686 (1.1015)	Batch_time 1.764 (1.082)	Data_time 0.000 (0.126)	
+2023-05-25 23:04:09,378 Epoch: [2][83/1133]	Loss: 1.1359 (1.1084)	Batch_time 0.926 (1.077)	Data_time 0.000 (0.122)	
+2023-05-25 23:04:19,163 Epoch: [2][93/1133]	Loss: 1.0237 (1.1093)	Batch_time 0.892 (1.067)	Data_time 0.000 (0.118)	
+2023-05-25 23:04:29,180 Epoch: [2][103/1133]	Loss: 0.9781 (1.1093)	Batch_time 0.901 (1.060)	Data_time 0.000 (0.115)	
+2023-05-25 23:04:38,971 Epoch: [2][113/1133]	Loss: 1.0414 (1.1117)	Batch_time 0.885 (1.053)	Data_time 0.000 (0.113)	
+2023-05-25 23:04:49,367 Epoch: [2][123/1133]	Loss: 1.3662 (1.1154)	Batch_time 0.866 (1.052)	Data_time 0.000 (0.111)	
+2023-05-25 23:04:59,029 Epoch: [2][133/1133]	Loss: 1.0939 (1.1222)	Batch_time 0.883 (1.046)	Data_time 0.000 (0.109)	
+2023-05-25 23:05:08,595 Epoch: [2][143/1133]	Loss: 1.1358 (1.1253)	Batch_time 0.868 (1.040)	Data_time 0.000 (0.107)	
+2023-05-25 23:05:18,399 Epoch: [2][153/1133]	Loss: 1.0659 (1.1252)	Batch_time 0.893 (1.036)	Data_time 0.001 (0.107)	
+2023-05-25 23:05:28,145 Epoch: [2][163/1133]	Loss: 1.1723 (1.1284)	Batch_time 0.921 (1.032)	Data_time 0.000 (0.105)	
+2023-05-25 23:05:37,784 Epoch: [2][173/1133]	Loss: 1.1780 (1.1274)	Batch_time 0.873 (1.028)	Data_time 0.001 (0.104)	
+2023-05-25 23:05:47,413 Epoch: [2][183/1133]	Loss: 1.0370 (1.1272)	Batch_time 0.863 (1.025)	Data_time 0.000 (0.104)	
+2023-05-25 23:05:57,257 Epoch: [2][193/1133]	Loss: 1.0749 (1.1249)	Batch_time 0.870 (1.022)	Data_time 0.000 (0.103)	
+2023-05-25 23:06:07,741 Epoch: [2][203/1133]	Loss: 1.0432 (1.1238)	Batch_time 0.854 (1.024)	Data_time 0.000 (0.102)	
+2023-05-25 23:06:17,388 Epoch: [2][213/1133]	Loss: 1.2417 (1.1239)	Batch_time 0.852 (1.021)	Data_time 0.000 (0.101)	
+2023-05-25 23:06:27,033 Epoch: [2][223/1133]	Loss: 1.1605 (1.1239)	Batch_time 0.875 (1.018)	Data_time 0.000 (0.101)	
+2023-05-25 23:06:36,738 Epoch: [2][233/1133]	Loss: 1.1634 (1.1260)	Batch_time 0.870 (1.016)	Data_time 0.000 (0.100)	
+2023-05-25 23:06:40,840 Test: [0/40]	 Loss : 2.3531 (2.3531)	Time 4.101 (4.101)	
+2023-05-25 23:06:46,072 Test: [10/40]	 Loss : 2.5068 (2.4366)	Time 5.231 (2.990)	
+2023-05-25 23:06:51,838 Test: [20/40]	 Loss : 2.4467 (2.4215)	Time 5.765 (3.028)	
+2023-05-25 23:06:58,888 Test: [30/40]	 Loss : 2.5332 (2.4855)	Time 7.049 (3.245)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:07:05,808 Image to caption: 31.0, 60.1, 73.1, 3.0, 19.0
+2023-05-25 23:07:06,775 Caption to image: 24.4, 54.0, 66.5, 5.0, 24.0
+2023-05-25 23:07:16,441 Epoch: [2][243/1133]	Loss: 1.1593 (1.1269)	Batch_time 0.864 (1.137)	Data_time 0.000 (0.223)	
+2023-05-25 23:07:26,178 Epoch: [2][253/1133]	Loss: 1.0646 (1.1266)	Batch_time 0.855 (1.131)	Data_time 0.001 (0.218)	
+2023-05-25 23:07:36,214 Epoch: [2][263/1133]	Loss: 1.0869 (1.1269)	Batch_time 0.916 (1.126)	Data_time 0.000 (0.213)	
+2023-05-25 23:07:45,942 Epoch: [2][273/1133]	Loss: 1.1776 (1.1270)	Batch_time 0.856 (1.121)	Data_time 0.001 (0.208)	
+2023-05-25 23:07:56,462 Epoch: [2][283/1133]	Loss: 1.1314 (1.1268)	Batch_time 0.864 (1.118)	Data_time 0.000 (0.204)	
+2023-05-25 23:08:06,233 Epoch: [2][293/1133]	Loss: 1.0933 (1.1267)	Batch_time 0.956 (1.113)	Data_time 0.000 (0.200)	
+2023-05-25 23:08:16,185 Epoch: [2][303/1133]	Loss: 1.1919 (1.1273)	Batch_time 0.941 (1.109)	Data_time 0.000 (0.197)	
+2023-05-25 23:08:26,557 Epoch: [2][313/1133]	Loss: 1.1636 (1.1270)	Batch_time 0.963 (1.107)	Data_time 0.001 (0.193)	
+2023-05-25 23:08:36,226 Epoch: [2][323/1133]	Loss: 1.3278 (1.1284)	Batch_time 0.862 (1.103)	Data_time 0.000 (0.190)	
+2023-05-25 23:08:45,808 Epoch: [2][333/1133]	Loss: 1.1399 (1.1288)	Batch_time 0.862 (1.099)	Data_time 0.000 (0.187)	
+2023-05-25 23:08:55,753 Epoch: [2][343/1133]	Loss: 0.9980 (1.1288)	Batch_time 0.950 (1.096)	Data_time 0.000 (0.184)	
+2023-05-25 23:09:06,886 Epoch: [2][353/1133]	Loss: 1.1496 (1.1276)	Batch_time 0.955 (1.096)	Data_time 0.000 (0.181)	
+2023-05-25 23:09:17,036 Epoch: [2][363/1133]	Loss: 1.1263 (1.1278)	Batch_time 0.870 (1.094)	Data_time 0.001 (0.179)	
+2023-05-25 23:09:26,625 Epoch: [2][373/1133]	Loss: 1.2834 (1.1290)	Batch_time 0.868 (1.090)	Data_time 0.000 (0.176)	
+2023-05-25 23:09:36,391 Epoch: [2][383/1133]	Loss: 1.1943 (1.1282)	Batch_time 0.862 (1.087)	Data_time 0.000 (0.174)	
+2023-05-25 23:09:46,254 Epoch: [2][393/1133]	Loss: 1.0112 (1.1276)	Batch_time 0.902 (1.085)	Data_time 0.000 (0.172)	
+2023-05-25 23:09:55,946 Epoch: [2][403/1133]	Loss: 1.2433 (1.1268)	Batch_time 0.860 (1.082)	Data_time 0.000 (0.170)	
+2023-05-25 23:10:06,340 Epoch: [2][413/1133]	Loss: 1.1447 (1.1265)	Batch_time 0.869 (1.081)	Data_time 0.000 (0.168)	
+2023-05-25 23:10:16,051 Epoch: [2][423/1133]	Loss: 1.1413 (1.1266)	Batch_time 0.869 (1.078)	Data_time 0.000 (0.166)	
+2023-05-25 23:10:25,770 Epoch: [2][433/1133]	Loss: 1.0187 (1.1254)	Batch_time 0.868 (1.076)	Data_time 0.000 (0.165)	
+2023-05-25 23:10:35,408 Epoch: [2][443/1133]	Loss: 1.1117 (1.1252)	Batch_time 0.863 (1.073)	Data_time 0.000 (0.163)	
+2023-05-25 23:10:45,077 Epoch: [2][453/1133]	Loss: 1.1159 (1.1255)	Batch_time 0.864 (1.071)	Data_time 0.000 (0.161)	
+2023-05-25 23:10:55,758 Epoch: [2][463/1133]	Loss: 1.1827 (1.1253)	Batch_time 0.928 (1.071)	Data_time 0.000 (0.160)	
+2023-05-25 23:11:06,043 Epoch: [2][473/1133]	Loss: 1.1083 (1.1263)	Batch_time 0.926 (1.070)	Data_time 0.001 (0.158)	
+2023-05-25 23:11:16,340 Epoch: [2][483/1133]	Loss: 1.1648 (1.1253)	Batch_time 0.872 (1.069)	Data_time 0.000 (0.157)	
+2023-05-25 23:11:26,019 Epoch: [2][493/1133]	Loss: 1.1070 (1.1259)	Batch_time 0.863 (1.067)	Data_time 0.000 (0.156)	
+2023-05-25 23:11:35,641 Epoch: [2][503/1133]	Loss: 1.1710 (1.1260)	Batch_time 0.881 (1.065)	Data_time 0.000 (0.154)	
+2023-05-25 23:11:45,208 Epoch: [2][513/1133]	Loss: 1.1717 (1.1253)	Batch_time 0.858 (1.063)	Data_time 0.000 (0.153)	
+2023-05-25 23:11:54,879 Epoch: [2][523/1133]	Loss: 1.1056 (1.1257)	Batch_time 0.857 (1.061)	Data_time 0.001 (0.152)	
+2023-05-25 23:12:05,276 Epoch: [2][533/1133]	Loss: 0.9595 (1.1247)	Batch_time 0.861 (1.061)	Data_time 0.000 (0.150)	
+2023-05-25 23:12:14,996 Epoch: [2][543/1133]	Loss: 1.0592 (1.1248)	Batch_time 0.869 (1.059)	Data_time 0.000 (0.149)	
+2023-05-25 23:12:24,708 Epoch: [2][553/1133]	Loss: 1.2131 (1.1258)	Batch_time 0.863 (1.057)	Data_time 0.000 (0.148)	
+2023-05-25 23:12:34,578 Epoch: [2][563/1133]	Loss: 1.0710 (1.1252)	Batch_time 0.867 (1.056)	Data_time 0.000 (0.147)	
+2023-05-25 23:12:44,381 Epoch: [2][573/1133]	Loss: 1.0450 (1.1244)	Batch_time 0.879 (1.055)	Data_time 0.000 (0.146)	
+2023-05-25 23:12:54,225 Epoch: [2][583/1133]	Loss: 1.2446 (1.1246)	Batch_time 0.953 (1.054)	Data_time 0.000 (0.145)	
+2023-05-25 23:13:04,298 Epoch: [2][593/1133]	Loss: 0.9791 (1.1245)	Batch_time 0.939 (1.053)	Data_time 0.000 (0.144)	
+2023-05-25 23:13:15,439 Epoch: [2][603/1133]	Loss: 0.9420 (1.1246)	Batch_time 0.928 (1.054)	Data_time 0.000 (0.143)	
+2023-05-25 23:13:25,517 Epoch: [2][613/1133]	Loss: 1.0490 (1.1244)	Batch_time 0.869 (1.053)	Data_time 0.001 (0.143)	
+2023-05-25 23:13:35,152 Epoch: [2][623/1133]	Loss: 1.2037 (1.1255)	Batch_time 0.864 (1.052)	Data_time 0.000 (0.142)	
+2023-05-25 23:13:45,448 Epoch: [2][633/1133]	Loss: 1.0944 (1.1253)	Batch_time 0.921 (1.051)	Data_time 0.000 (0.141)	
+2023-05-25 23:13:55,605 Epoch: [2][643/1133]	Loss: 1.2389 (1.1252)	Batch_time 0.877 (1.051)	Data_time 0.000 (0.140)	
+2023-05-25 23:14:05,337 Epoch: [2][653/1133]	Loss: 1.1742 (1.1251)	Batch_time 0.924 (1.050)	Data_time 0.000 (0.139)	
+2023-05-25 23:14:15,827 Epoch: [2][663/1133]	Loss: 1.2732 (1.1252)	Batch_time 0.865 (1.050)	Data_time 0.001 (0.139)	
+2023-05-25 23:14:25,510 Epoch: [2][673/1133]	Loss: 1.1852 (1.1251)	Batch_time 0.866 (1.048)	Data_time 0.001 (0.138)	
+2023-05-25 23:14:35,035 Epoch: [2][683/1133]	Loss: 1.1810 (1.1259)	Batch_time 0.861 (1.047)	Data_time 0.001 (0.137)	
+2023-05-25 23:14:44,727 Epoch: [2][693/1133]	Loss: 1.1334 (1.1268)	Batch_time 0.867 (1.046)	Data_time 0.000 (0.136)	
+2023-05-25 23:14:54,322 Epoch: [2][703/1133]	Loss: 1.1386 (1.1270)	Batch_time 0.861 (1.045)	Data_time 0.000 (0.136)	
+2023-05-25 23:15:04,954 Epoch: [2][713/1133]	Loss: 1.0944 (1.1268)	Batch_time 0.958 (1.045)	Data_time 0.000 (0.135)	
+2023-05-25 23:15:14,660 Epoch: [2][723/1133]	Loss: 1.1083 (1.1268)	Batch_time 0.861 (1.044)	Data_time 0.001 (0.134)	
+2023-05-25 23:15:24,233 Epoch: [2][733/1133]	Loss: 1.1596 (1.1268)	Batch_time 0.880 (1.043)	Data_time 0.000 (0.134)	
+2023-05-25 23:15:27,978 Test: [0/40]	 Loss : 2.2934 (2.2934)	Time 3.743 (3.743)	
+2023-05-25 23:15:33,188 Test: [10/40]	 Loss : 2.4621 (2.4368)	Time 5.210 (2.947)	
+2023-05-25 23:15:39,002 Test: [20/40]	 Loss : 2.4123 (2.4190)	Time 5.813 (3.040)	
+2023-05-25 23:15:45,033 Test: [30/40]	 Loss : 2.5904 (2.4794)	Time 6.031 (3.137)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:15:52,346 Image to caption: 31.1, 59.1, 70.7, 4.0, 18.0
+2023-05-25 23:15:53,330 Caption to image: 24.0, 53.6, 66.9, 5.0, 23.0
+2023-05-25 23:16:03,141 Epoch: [2][743/1133]	Loss: 1.1086 (1.1269)	Batch_time 0.868 (1.081)	Data_time 0.000 (0.172)	
+2023-05-25 23:16:12,828 Epoch: [2][753/1133]	Loss: 1.1139 (1.1267)	Batch_time 0.865 (1.079)	Data_time 0.000 (0.171)	
+2023-05-25 23:16:22,430 Epoch: [2][763/1133]	Loss: 1.1442 (1.1266)	Batch_time 0.866 (1.078)	Data_time 0.000 (0.170)	
+2023-05-25 23:16:32,167 Epoch: [2][773/1133]	Loss: 1.0500 (1.1266)	Batch_time 0.867 (1.077)	Data_time 0.001 (0.169)	
+2023-05-25 23:16:41,776 Epoch: [2][783/1133]	Loss: 1.2621 (1.1263)	Batch_time 0.872 (1.075)	Data_time 0.000 (0.168)	
+2023-05-25 23:16:51,402 Epoch: [2][793/1133]	Loss: 1.1924 (1.1264)	Batch_time 0.864 (1.074)	Data_time 0.001 (0.167)	
+2023-05-25 23:17:01,833 Epoch: [2][803/1133]	Loss: 1.0536 (1.1263)	Batch_time 0.881 (1.073)	Data_time 0.000 (0.166)	
+2023-05-25 23:17:11,524 Epoch: [2][813/1133]	Loss: 1.1382 (1.1264)	Batch_time 0.875 (1.072)	Data_time 0.000 (0.165)	
+2023-05-25 23:17:21,180 Epoch: [2][823/1133]	Loss: 0.9866 (1.1264)	Batch_time 0.860 (1.071)	Data_time 0.000 (0.164)	
+2023-05-25 23:17:30,857 Epoch: [2][833/1133]	Loss: 1.2416 (1.1269)	Batch_time 0.879 (1.069)	Data_time 0.001 (0.163)	
+2023-05-25 23:17:40,506 Epoch: [2][843/1133]	Loss: 1.1753 (1.1267)	Batch_time 0.869 (1.068)	Data_time 0.000 (0.162)	
+2023-05-25 23:17:50,246 Epoch: [2][853/1133]	Loss: 1.1467 (1.1268)	Batch_time 0.908 (1.067)	Data_time 0.001 (0.161)	
+2023-05-25 23:18:00,912 Epoch: [2][863/1133]	Loss: 1.1283 (1.1270)	Batch_time 0.875 (1.067)	Data_time 0.000 (0.160)	
+2023-05-25 23:18:10,691 Epoch: [2][873/1133]	Loss: 1.0975 (1.1270)	Batch_time 0.865 (1.066)	Data_time 0.001 (0.160)	
+2023-05-25 23:18:20,351 Epoch: [2][883/1133]	Loss: 1.0740 (1.1274)	Batch_time 0.870 (1.065)	Data_time 0.000 (0.159)	
+2023-05-25 23:18:30,333 Epoch: [2][893/1133]	Loss: 1.2881 (1.1268)	Batch_time 0.862 (1.064)	Data_time 0.000 (0.158)	
+2023-05-25 23:18:41,155 Epoch: [2][903/1133]	Loss: 1.0067 (1.1258)	Batch_time 1.902 (1.064)	Data_time 0.000 (0.157)	
+2023-05-25 23:18:50,964 Epoch: [2][913/1133]	Loss: 1.2071 (1.1254)	Batch_time 0.866 (1.064)	Data_time 0.000 (0.156)	
+2023-05-25 23:19:00,574 Epoch: [2][923/1133]	Loss: 1.1415 (1.1254)	Batch_time 0.861 (1.062)	Data_time 0.001 (0.156)	
+2023-05-25 23:19:10,291 Epoch: [2][933/1133]	Loss: 0.9430 (1.1250)	Batch_time 0.869 (1.061)	Data_time 0.000 (0.155)	
+2023-05-25 23:19:19,944 Epoch: [2][943/1133]	Loss: 1.0843 (1.1246)	Batch_time 0.884 (1.060)	Data_time 0.000 (0.154)	
+2023-05-25 23:19:29,553 Epoch: [2][953/1133]	Loss: 0.9911 (1.1245)	Batch_time 0.867 (1.059)	Data_time 0.000 (0.154)	
+2023-05-25 23:19:39,242 Epoch: [2][963/1133]	Loss: 1.0876 (1.1238)	Batch_time 0.876 (1.058)	Data_time 0.001 (0.153)	
+2023-05-25 23:19:48,899 Epoch: [2][973/1133]	Loss: 1.0618 (1.1233)	Batch_time 0.863 (1.057)	Data_time 0.000 (0.152)	
+2023-05-25 23:19:59,403 Epoch: [2][983/1133]	Loss: 1.3232 (1.1233)	Batch_time 0.863 (1.057)	Data_time 0.000 (0.152)	
+2023-05-25 23:20:09,100 Epoch: [2][993/1133]	Loss: 1.1631 (1.1229)	Batch_time 0.928 (1.057)	Data_time 0.001 (0.151)	
+2023-05-25 23:20:18,734 Epoch: [2][1003/1133]	Loss: 1.0744 (1.1228)	Batch_time 0.910 (1.056)	Data_time 0.000 (0.150)	
+2023-05-25 23:20:28,511 Epoch: [2][1013/1133]	Loss: 1.0317 (1.1227)	Batch_time 0.873 (1.055)	Data_time 0.001 (0.150)	
+2023-05-25 23:20:38,147 Epoch: [2][1023/1133]	Loss: 1.1841 (1.1230)	Batch_time 0.870 (1.054)	Data_time 0.000 (0.149)	
+2023-05-25 23:20:47,931 Epoch: [2][1033/1133]	Loss: 1.0169 (1.1229)	Batch_time 0.866 (1.053)	Data_time 0.000 (0.148)	
+2023-05-25 23:20:58,424 Epoch: [2][1043/1133]	Loss: 1.2573 (1.1233)	Batch_time 0.869 (1.053)	Data_time 0.000 (0.148)	
+2023-05-25 23:21:08,319 Epoch: [2][1053/1133]	Loss: 1.1673 (1.1228)	Batch_time 0.913 (1.053)	Data_time 0.001 (0.147)	
+2023-05-25 23:21:18,080 Epoch: [2][1063/1133]	Loss: 1.0087 (1.1224)	Batch_time 0.863 (1.052)	Data_time 0.000 (0.147)	
+2023-05-25 23:21:27,892 Epoch: [2][1073/1133]	Loss: 1.1641 (1.1227)	Batch_time 0.913 (1.051)	Data_time 0.000 (0.146)	
+2023-05-25 23:21:38,269 Epoch: [2][1083/1133]	Loss: 1.0755 (1.1224)	Batch_time 0.933 (1.051)	Data_time 0.000 (0.146)	
+2023-05-25 23:21:48,429 Epoch: [2][1093/1133]	Loss: 1.1032 (1.1220)	Batch_time 0.885 (1.051)	Data_time 0.000 (0.145)	
+2023-05-25 23:21:59,552 Epoch: [2][1103/1133]	Loss: 0.9222 (1.1215)	Batch_time 1.796 (1.051)	Data_time 0.000 (0.145)	
+2023-05-25 23:22:10,090 Epoch: [2][1113/1133]	Loss: 1.1523 (1.1214)	Batch_time 0.924 (1.051)	Data_time 0.000 (0.144)	
+2023-05-25 23:22:19,809 Epoch: [2][1123/1133]	Loss: 1.0323 (1.1212)	Batch_time 0.861 (1.051)	Data_time 0.000 (0.144)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:22:31,435 Test: [0/40]	 Loss : 2.3380 (2.3380)	Time 3.127 (3.127)	
+2023-05-25 23:22:37,378 Test: [10/40]	 Loss : 2.4415 (2.4012)	Time 5.943 (3.140)	
+2023-05-25 23:22:43,272 Test: [20/40]	 Loss : 2.2932 (2.3839)	Time 5.893 (3.196)	
+2023-05-25 23:22:49,297 Test: [30/40]	 Loss : 2.6148 (2.4627)	Time 6.025 (3.240)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:22:55,759 Image to caption: 31.3, 59.8, 72.3, 3.0, 18.0
+2023-05-25 23:22:56,639 Caption to image: 25.2, 55.5, 67.4, 4.0, 24.0
+2023-05-25 23:23:10,036 Epoch: [3][0/1133]	Loss: 0.9484 (0.9484)	Batch_time 4.942 (4.942)	Data_time 2.718 (2.718)	
+2023-05-25 23:23:19,657 Epoch: [3][10/1133]	Loss: 0.8063 (0.8926)	Batch_time 1.220 (1.324)	Data_time 0.326 (0.309)	
+2023-05-25 23:23:29,409 Epoch: [3][20/1133]	Loss: 0.9263 (0.8839)	Batch_time 1.251 (1.158)	Data_time 0.358 (0.207)	
+2023-05-25 23:23:39,303 Epoch: [3][30/1133]	Loss: 1.0425 (0.8955)	Batch_time 1.275 (1.103)	Data_time 0.353 (0.168)	
+2023-05-25 23:23:49,211 Epoch: [3][40/1133]	Loss: 0.9130 (0.8972)	Batch_time 1.255 (1.076)	Data_time 0.350 (0.149)	
+2023-05-25 23:24:00,079 Epoch: [3][50/1133]	Loss: 0.9417 (0.9037)	Batch_time 1.387 (1.078)	Data_time 0.376 (0.138)	
+2023-05-25 23:24:09,789 Epoch: [3][60/1133]	Loss: 0.9940 (0.9088)	Batch_time 1.243 (1.061)	Data_time 0.360 (0.130)	
+2023-05-25 23:24:19,593 Epoch: [3][70/1133]	Loss: 0.9405 (0.9079)	Batch_time 1.300 (1.049)	Data_time 0.355 (0.124)	
+2023-05-25 23:24:29,263 Epoch: [3][80/1133]	Loss: 0.9946 (0.9046)	Batch_time 1.238 (1.039)	Data_time 0.364 (0.120)	
+2023-05-25 23:24:38,888 Epoch: [3][90/1133]	Loss: 0.8715 (0.9062)	Batch_time 1.293 (1.031)	Data_time 0.356 (0.116)	
+2023-05-25 23:24:50,046 Epoch: [3][100/1133]	Loss: 0.8508 (0.9064)	Batch_time 1.367 (1.039)	Data_time 0.387 (0.114)	
+2023-05-25 23:24:53,676 Test: [0/40]	 Loss : 2.3582 (2.3582)	Time 3.627 (3.627)	
+2023-05-25 23:24:59,420 Test: [10/40]	 Loss : 2.4874 (2.4312)	Time 5.743 (3.081)	
+2023-05-25 23:25:05,491 Test: [20/40]	 Loss : 2.3846 (2.4008)	Time 6.071 (3.147)	
+2023-05-25 23:25:11,487 Test: [30/40]	 Loss : 2.6710 (2.4815)	Time 5.996 (3.148)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:25:17,664 Image to caption: 31.5, 60.7, 71.5, 3.0, 18.0
+2023-05-25 23:25:18,538 Caption to image: 24.8, 56.2, 67.7, 4.0, 24.0
+2023-05-25 23:25:28,496 Epoch: [3][110/1133]	Loss: 0.9252 (0.9062)	Batch_time 1.389 (1.292)	Data_time 0.331 (0.369)	
+2023-05-25 23:25:38,665 Epoch: [3][120/1133]	Loss: 0.8970 (0.9071)	Batch_time 1.336 (1.269)	Data_time 0.356 (0.345)	
+2023-05-25 23:25:49,528 Epoch: [3][130/1133]	Loss: 0.9203 (0.9079)	Batch_time 1.310 (1.255)	Data_time 0.392 (0.326)	
+2023-05-25 23:25:59,290 Epoch: [3][140/1133]	Loss: 0.9037 (0.9073)	Batch_time 1.230 (1.235)	Data_time 0.344 (0.309)	
+2023-05-25 23:26:09,182 Epoch: [3][150/1133]	Loss: 0.8440 (0.9058)	Batch_time 1.419 (1.219)	Data_time 0.401 (0.294)	
+2023-05-25 23:26:19,016 Epoch: [3][160/1133]	Loss: 0.8757 (0.9035)	Batch_time 1.294 (1.204)	Data_time 0.350 (0.282)	
+2023-05-25 23:26:28,827 Epoch: [3][170/1133]	Loss: 0.8213 (0.9044)	Batch_time 1.304 (1.191)	Data_time 0.361 (0.271)	
+2023-05-25 23:26:39,353 Epoch: [3][180/1133]	Loss: 0.9560 (0.9050)	Batch_time 1.875 (1.184)	Data_time 0.981 (0.264)	
+2023-05-25 23:26:49,363 Epoch: [3][190/1133]	Loss: 0.9084 (0.9058)	Batch_time 1.311 (1.174)	Data_time 0.359 (0.255)	
+2023-05-25 23:26:59,297 Epoch: [3][200/1133]	Loss: 0.8352 (0.9051)	Batch_time 1.325 (1.165)	Data_time 0.363 (0.247)	
+2023-05-25 23:27:10,116 Epoch: [3][210/1133]	Loss: 0.7914 (0.9046)	Batch_time 1.218 (1.161)	Data_time 0.330 (0.239)	
+2023-05-25 23:27:19,969 Epoch: [3][220/1133]	Loss: 0.8380 (0.9053)	Batch_time 1.309 (1.153)	Data_time 0.350 (0.232)	
+2023-05-25 23:27:29,750 Epoch: [3][230/1133]	Loss: 0.8300 (0.9040)	Batch_time 1.288 (1.146)	Data_time 0.362 (0.226)	
+2023-05-25 23:27:39,717 Epoch: [3][240/1133]	Loss: 0.8949 (0.9037)	Batch_time 1.232 (1.140)	Data_time 0.345 (0.220)	
+2023-05-25 23:27:49,635 Epoch: [3][250/1133]	Loss: 0.9854 (0.9027)	Batch_time 1.288 (1.134)	Data_time 0.366 (0.215)	
+2023-05-25 23:27:59,718 Epoch: [3][260/1133]	Loss: 0.9392 (0.9034)	Batch_time 1.302 (1.129)	Data_time 0.354 (0.210)	
+2023-05-25 23:28:09,412 Epoch: [3][270/1133]	Loss: 1.0622 (0.9039)	Batch_time 1.273 (1.123)	Data_time 0.362 (0.206)	
+2023-05-25 23:28:20,655 Epoch: [3][280/1133]	Loss: 0.9034 (0.9031)	Batch_time 1.318 (1.123)	Data_time 0.363 (0.202)	
+2023-05-25 23:28:30,894 Epoch: [3][290/1133]	Loss: 0.9043 (0.9026)	Batch_time 1.324 (1.120)	Data_time 0.379 (0.198)	
+2023-05-25 23:28:40,831 Epoch: [3][300/1133]	Loss: 0.9205 (0.9027)	Batch_time 1.402 (1.115)	Data_time 0.354 (0.195)	
+2023-05-25 23:28:50,792 Epoch: [3][310/1133]	Loss: 1.0129 (0.9032)	Batch_time 1.244 (1.112)	Data_time 0.354 (0.191)	
+2023-05-25 23:29:00,803 Epoch: [3][320/1133]	Loss: 1.0321 (0.9040)	Batch_time 1.330 (1.108)	Data_time 0.364 (0.188)	
+2023-05-25 23:29:10,884 Epoch: [3][330/1133]	Loss: 1.0833 (0.9042)	Batch_time 1.262 (1.105)	Data_time 0.366 (0.185)	
+2023-05-25 23:29:20,682 Epoch: [3][340/1133]	Loss: 0.8642 (0.9041)	Batch_time 1.196 (1.101)	Data_time 0.301 (0.182)	
+2023-05-25 23:29:30,808 Epoch: [3][350/1133]	Loss: 0.7918 (0.9033)	Batch_time 1.321 (1.099)	Data_time 0.359 (0.180)	
+2023-05-25 23:29:41,831 Epoch: [3][360/1133]	Loss: 0.9403 (0.9029)	Batch_time 1.367 (1.099)	Data_time 0.388 (0.177)	
+2023-05-25 23:29:51,873 Epoch: [3][370/1133]	Loss: 0.8000 (0.9047)	Batch_time 1.297 (1.096)	Data_time 0.382 (0.175)	
+2023-05-25 23:30:01,840 Epoch: [3][380/1133]	Loss: 0.9837 (0.9056)	Batch_time 1.367 (1.094)	Data_time 0.480 (0.173)	
+2023-05-25 23:30:11,928 Epoch: [3][390/1133]	Loss: 1.0020 (0.9096)	Batch_time 1.302 (1.092)	Data_time 0.362 (0.171)	
+2023-05-25 23:30:21,843 Epoch: [3][400/1133]	Loss: 0.8308 (0.9111)	Batch_time 1.347 (1.089)	Data_time 0.379 (0.169)	
+2023-05-25 23:30:31,552 Epoch: [3][410/1133]	Loss: 0.8508 (0.9111)	Batch_time 1.330 (1.086)	Data_time 0.359 (0.167)	
+2023-05-25 23:30:41,530 Epoch: [3][420/1133]	Loss: 0.9328 (0.9111)	Batch_time 1.237 (1.084)	Data_time 0.340 (0.165)	
+2023-05-25 23:30:52,477 Epoch: [3][430/1133]	Loss: 0.9410 (0.9115)	Batch_time 1.315 (1.084)	Data_time 0.383 (0.163)	
+2023-05-25 23:31:02,280 Epoch: [3][440/1133]	Loss: 0.9939 (0.9118)	Batch_time 1.231 (1.082)	Data_time 0.339 (0.162)	
+2023-05-25 23:31:12,119 Epoch: [3][450/1133]	Loss: 0.9046 (0.9123)	Batch_time 1.351 (1.080)	Data_time 0.425 (0.160)	
+2023-05-25 23:31:21,969 Epoch: [3][460/1133]	Loss: 0.9963 (0.9115)	Batch_time 1.352 (1.078)	Data_time 0.368 (0.159)	
+2023-05-25 23:31:32,053 Epoch: [3][470/1133]	Loss: 0.9657 (0.9126)	Batch_time 1.278 (1.076)	Data_time 0.391 (0.157)	
+2023-05-25 23:31:42,000 Epoch: [3][480/1133]	Loss: 0.9307 (0.9133)	Batch_time 1.365 (1.075)	Data_time 0.408 (0.156)	
+2023-05-25 23:31:51,757 Epoch: [3][490/1133]	Loss: 0.8202 (0.9131)	Batch_time 1.230 (1.073)	Data_time 0.313 (0.155)	
+2023-05-25 23:32:02,948 Epoch: [3][500/1133]	Loss: 0.9054 (0.9131)	Batch_time 1.248 (1.074)	Data_time 0.342 (0.153)	
+2023-05-25 23:32:13,134 Epoch: [3][510/1133]	Loss: 0.9012 (0.9128)	Batch_time 1.375 (1.072)	Data_time 0.414 (0.152)	
+2023-05-25 23:32:23,029 Epoch: [3][520/1133]	Loss: 0.8905 (0.9130)	Batch_time 1.311 (1.071)	Data_time 0.364 (0.151)	
+2023-05-25 23:32:32,869 Epoch: [3][530/1133]	Loss: 0.8411 (0.9128)	Batch_time 1.289 (1.069)	Data_time 0.411 (0.150)	
+2023-05-25 23:32:42,603 Epoch: [3][540/1133]	Loss: 0.8669 (0.9121)	Batch_time 1.221 (1.067)	Data_time 0.339 (0.149)	
+2023-05-25 23:32:52,484 Epoch: [3][550/1133]	Loss: 0.9027 (0.9121)	Batch_time 1.262 (1.066)	Data_time 0.346 (0.148)	
+2023-05-25 23:33:02,274 Epoch: [3][560/1133]	Loss: 1.0560 (0.9127)	Batch_time 1.248 (1.064)	Data_time 0.365 (0.147)	
+2023-05-25 23:33:12,055 Epoch: [3][570/1133]	Loss: 0.9253 (0.9125)	Batch_time 1.224 (1.063)	Data_time 0.351 (0.146)	
+2023-05-25 23:33:22,988 Epoch: [3][580/1133]	Loss: 1.0360 (0.9127)	Batch_time 1.427 (1.063)	Data_time 0.382 (0.145)	
+2023-05-25 23:33:33,460 Epoch: [3][590/1133]	Loss: 1.0246 (0.9131)	Batch_time 1.294 (1.063)	Data_time 0.321 (0.144)	
+2023-05-25 23:33:43,853 Epoch: [3][600/1133]	Loss: 0.9162 (0.9127)	Batch_time 1.323 (1.063)	Data_time 0.441 (0.143)	
+2023-05-25 23:33:47,057 Test: [0/40]	 Loss : 2.4021 (2.4021)	Time 3.201 (3.201)	
+2023-05-25 23:33:52,323 Test: [10/40]	 Loss : 2.5085 (2.4418)	Time 5.266 (2.896)	
+2023-05-25 23:33:58,191 Test: [20/40]	 Loss : 2.3926 (2.4261)	Time 5.868 (3.056)	
+2023-05-25 23:34:04,220 Test: [30/40]	 Loss : 2.5624 (2.4944)	Time 6.028 (3.146)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:34:10,794 Image to caption: 32.7, 61.8, 72.9, 3.0, 20.0
+2023-05-25 23:34:11,718 Caption to image: 25.4, 54.9, 67.3, 4.0, 26.0
+2023-05-25 23:34:21,607 Epoch: [3][610/1133]	Loss: 1.0504 (0.9126)	Batch_time 1.200 (1.107)	Data_time 0.331 (0.188)	
+2023-05-25 23:34:32,497 Epoch: [3][620/1133]	Loss: 1.0527 (0.9126)	Batch_time 1.217 (1.107)	Data_time 0.348 (0.186)	
+2023-05-25 23:34:42,393 Epoch: [3][630/1133]	Loss: 0.9416 (0.9131)	Batch_time 1.330 (1.105)	Data_time 0.361 (0.185)	
+2023-05-25 23:34:52,163 Epoch: [3][640/1133]	Loss: 0.9307 (0.9137)	Batch_time 1.279 (1.103)	Data_time 0.330 (0.183)	
+2023-05-25 23:35:02,148 Epoch: [3][650/1133]	Loss: 0.9633 (0.9137)	Batch_time 1.226 (1.101)	Data_time 0.351 (0.182)	
+2023-05-25 23:35:11,946 Epoch: [3][660/1133]	Loss: 0.9162 (0.9137)	Batch_time 1.303 (1.100)	Data_time 0.360 (0.180)	
+2023-05-25 23:35:23,105 Epoch: [3][670/1133]	Loss: 0.9288 (0.9135)	Batch_time 1.329 (1.100)	Data_time 0.372 (0.179)	
+2023-05-25 23:35:33,037 Epoch: [3][680/1133]	Loss: 0.9558 (0.9142)	Batch_time 1.251 (1.098)	Data_time 0.370 (0.178)	
+2023-05-25 23:35:42,933 Epoch: [3][690/1133]	Loss: 0.8495 (0.9139)	Batch_time 1.276 (1.097)	Data_time 0.360 (0.177)	
+2023-05-25 23:35:52,845 Epoch: [3][700/1133]	Loss: 0.9457 (0.9144)	Batch_time 1.414 (1.095)	Data_time 0.423 (0.175)	
+2023-05-25 23:36:02,901 Epoch: [3][710/1133]	Loss: 0.9243 (0.9147)	Batch_time 1.385 (1.094)	Data_time 0.465 (0.174)	
+2023-05-25 23:36:14,027 Epoch: [3][720/1133]	Loss: 1.0212 (0.9150)	Batch_time 1.255 (1.094)	Data_time 0.351 (0.173)	
+2023-05-25 23:36:23,876 Epoch: [3][730/1133]	Loss: 0.8345 (0.9152)	Batch_time 1.265 (1.093)	Data_time 0.372 (0.172)	
+2023-05-25 23:36:33,716 Epoch: [3][740/1133]	Loss: 0.9281 (0.9159)	Batch_time 1.228 (1.091)	Data_time 0.324 (0.171)	
+2023-05-25 23:36:43,784 Epoch: [3][750/1133]	Loss: 1.0408 (0.9155)	Batch_time 1.260 (1.090)	Data_time 0.364 (0.170)	
+2023-05-25 23:36:53,571 Epoch: [3][760/1133]	Loss: 0.9621 (0.9156)	Batch_time 1.262 (1.089)	Data_time 0.343 (0.169)	
+2023-05-25 23:37:03,472 Epoch: [3][770/1133]	Loss: 0.9183 (0.9156)	Batch_time 1.254 (1.087)	Data_time 0.358 (0.168)	
+2023-05-25 23:37:13,485 Epoch: [3][780/1133]	Loss: 0.8285 (0.9153)	Batch_time 1.316 (1.086)	Data_time 0.342 (0.167)	
+2023-05-25 23:37:23,488 Epoch: [3][790/1133]	Loss: 0.8460 (0.9155)	Batch_time 1.253 (1.085)	Data_time 0.373 (0.166)	
+2023-05-25 23:37:34,549 Epoch: [3][800/1133]	Loss: 0.9831 (0.9154)	Batch_time 1.382 (1.085)	Data_time 0.362 (0.165)	
+2023-05-25 23:37:44,552 Epoch: [3][810/1133]	Loss: 0.8969 (0.9147)	Batch_time 1.284 (1.084)	Data_time 0.350 (0.164)	
+2023-05-25 23:37:54,617 Epoch: [3][820/1133]	Loss: 1.0609 (0.9153)	Batch_time 1.312 (1.083)	Data_time 0.339 (0.163)	
+2023-05-25 23:38:04,527 Epoch: [3][830/1133]	Loss: 0.9982 (0.9158)	Batch_time 1.291 (1.082)	Data_time 0.346 (0.162)	
+2023-05-25 23:38:14,440 Epoch: [3][840/1133]	Loss: 0.9145 (0.9160)	Batch_time 1.229 (1.081)	Data_time 0.358 (0.161)	
+2023-05-25 23:38:25,414 Epoch: [3][850/1133]	Loss: 0.9346 (0.9166)	Batch_time 2.372 (1.081)	Data_time 0.353 (0.161)	
+2023-05-25 23:38:35,063 Epoch: [3][860/1133]	Loss: 0.9840 (0.9166)	Batch_time 1.225 (1.080)	Data_time 0.336 (0.160)	
+2023-05-25 23:38:44,556 Epoch: [3][870/1133]	Loss: 0.8865 (0.9165)	Batch_time 1.184 (1.079)	Data_time 0.326 (0.159)	
+2023-05-25 23:38:54,007 Epoch: [3][880/1133]	Loss: 0.9686 (0.9173)	Batch_time 1.226 (1.077)	Data_time 0.355 (0.158)	
+2023-05-25 23:39:03,710 Epoch: [3][890/1133]	Loss: 0.8843 (0.9174)	Batch_time 1.260 (1.076)	Data_time 0.341 (0.157)	
+2023-05-25 23:39:14,130 Epoch: [3][900/1133]	Loss: 0.9407 (0.9174)	Batch_time 1.256 (1.076)	Data_time 0.369 (0.157)	
+2023-05-25 23:39:23,862 Epoch: [3][910/1133]	Loss: 1.0091 (0.9177)	Batch_time 1.226 (1.074)	Data_time 0.318 (0.156)	
+2023-05-25 23:39:33,433 Epoch: [3][920/1133]	Loss: 0.9393 (0.9182)	Batch_time 1.217 (1.073)	Data_time 0.347 (0.155)	
+2023-05-25 23:39:42,942 Epoch: [3][930/1133]	Loss: 0.9581 (0.9181)	Batch_time 1.266 (1.072)	Data_time 0.373 (0.154)	
+2023-05-25 23:39:52,614 Epoch: [3][940/1133]	Loss: 0.9979 (0.9183)	Batch_time 1.232 (1.071)	Data_time 0.358 (0.154)	
+2023-05-25 23:40:02,147 Epoch: [3][950/1133]	Loss: 0.8833 (0.9183)	Batch_time 1.184 (1.069)	Data_time 0.340 (0.153)	
+2023-05-25 23:40:11,663 Epoch: [3][960/1133]	Loss: 1.0589 (0.9185)	Batch_time 1.210 (1.068)	Data_time 0.345 (0.152)	
+2023-05-25 23:40:21,058 Epoch: [3][970/1133]	Loss: 1.0002 (0.9187)	Batch_time 1.148 (1.067)	Data_time 0.262 (0.151)	
+2023-05-25 23:40:31,386 Epoch: [3][980/1133]	Loss: 0.8795 (0.9188)	Batch_time 1.226 (1.067)	Data_time 0.352 (0.151)	
+2023-05-25 23:40:41,026 Epoch: [3][990/1133]	Loss: 0.9789 (0.9185)	Batch_time 1.210 (1.066)	Data_time 0.341 (0.150)	
+2023-05-25 23:40:50,797 Epoch: [3][1000/1133]	Loss: 0.8971 (0.9185)	Batch_time 1.285 (1.065)	Data_time 0.342 (0.150)	
+2023-05-25 23:41:00,260 Epoch: [3][1010/1133]	Loss: 0.9770 (0.9184)	Batch_time 1.194 (1.063)	Data_time 0.323 (0.149)	
+2023-05-25 23:41:09,835 Epoch: [3][1020/1133]	Loss: 1.0930 (0.9185)	Batch_time 1.214 (1.062)	Data_time 0.324 (0.148)	
+2023-05-25 23:41:19,408 Epoch: [3][1030/1133]	Loss: 0.8444 (0.9186)	Batch_time 1.225 (1.061)	Data_time 0.328 (0.148)	
+2023-05-25 23:41:29,669 Epoch: [3][1040/1133]	Loss: 0.8765 (0.9190)	Batch_time 1.176 (1.061)	Data_time 0.324 (0.147)	
+2023-05-25 23:41:39,287 Epoch: [3][1050/1133]	Loss: 0.8329 (0.9190)	Batch_time 1.206 (1.060)	Data_time 0.339 (0.147)	
+2023-05-25 23:41:48,949 Epoch: [3][1060/1133]	Loss: 0.9394 (0.9190)	Batch_time 1.219 (1.059)	Data_time 0.336 (0.146)	
+2023-05-25 23:41:58,536 Epoch: [3][1070/1133]	Loss: 0.9238 (0.9187)	Batch_time 1.215 (1.058)	Data_time 0.331 (0.145)	
+2023-05-25 23:42:08,163 Epoch: [3][1080/1133]	Loss: 1.0165 (0.9185)	Batch_time 1.207 (1.057)	Data_time 0.347 (0.145)	
+2023-05-25 23:42:17,883 Epoch: [3][1090/1133]	Loss: 0.9615 (0.9183)	Batch_time 1.237 (1.057)	Data_time 0.373 (0.144)	
+2023-05-25 23:42:28,315 Epoch: [3][1100/1133]	Loss: 0.9366 (0.9187)	Batch_time 1.270 (1.057)	Data_time 0.350 (0.144)	
+2023-05-25 23:42:31,614 Test: [0/40]	 Loss : 2.3931 (2.3931)	Time 3.297 (3.297)	
+2023-05-25 23:42:37,069 Test: [10/40]	 Loss : 2.5615 (2.4352)	Time 5.454 (2.953)	
+2023-05-25 23:42:43,071 Test: [20/40]	 Loss : 2.4886 (2.4215)	Time 6.003 (3.117)	
+2023-05-25 23:42:49,044 Test: [30/40]	 Loss : 2.5329 (2.4912)	Time 5.972 (3.171)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:42:55,424 Image to caption: 30.0, 61.1, 71.5, 3.0, 19.0
+2023-05-25 23:42:56,350 Caption to image: 25.6, 55.3, 67.7, 4.0, 24.0
+2023-05-25 23:43:06,014 Epoch: [3][1110/1133]	Loss: 1.0140 (0.9191)	Batch_time 1.230 (1.081)	Data_time 0.347 (0.169)	
+2023-05-25 23:43:15,557 Epoch: [3][1120/1133]	Loss: 0.8190 (0.9194)	Batch_time 1.194 (1.080)	Data_time 0.335 (0.168)	
+2023-05-25 23:43:25,531 Epoch: [3][1130/1133]	Loss: 0.8450 (0.9194)	Batch_time 0.904 (1.079)	Data_time 0.011 (0.167)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:43:31,053 Test: [0/40]	 Loss : 2.3550 (2.3550)	Time 3.553 (3.553)	
+2023-05-25 23:43:36,423 Test: [10/40]	 Loss : 2.4639 (2.4189)	Time 5.370 (2.928)	
+2023-05-25 23:43:42,192 Test: [20/40]	 Loss : 2.4089 (2.4026)	Time 5.769 (3.032)	
+2023-05-25 23:43:48,321 Test: [30/40]	 Loss : 2.5726 (2.4821)	Time 6.129 (3.153)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:43:54,560 Image to caption: 31.8, 61.5, 72.6, 3.0, 18.0
+2023-05-25 23:43:55,566 Caption to image: 25.3, 54.7, 67.3, 4.0, 24.0
+2023-05-25 23:44:15,012 Epoch: [4][7/1133]	Loss: 0.7363 (0.7908)	Batch_time 0.914 (1.382)	Data_time 0.000 (0.463)	
+2023-05-25 23:44:24,783 Epoch: [4][17/1133]	Loss: 0.8354 (0.7660)	Batch_time 0.861 (1.157)	Data_time 0.000 (0.251)	
+2023-05-25 23:44:36,111 Epoch: [4][27/1133]	Loss: 0.6344 (0.7545)	Batch_time 0.881 (1.148)	Data_time 0.001 (0.195)	
+2023-05-25 23:44:46,221 Epoch: [4][37/1133]	Loss: 0.7428 (0.7418)	Batch_time 0.914 (1.112)	Data_time 0.000 (0.171)	
+2023-05-25 23:44:55,928 Epoch: [4][47/1133]	Loss: 0.6796 (0.7404)	Batch_time 0.883 (1.083)	Data_time 0.000 (0.153)	
+2023-05-25 23:45:05,819 Epoch: [4][57/1133]	Loss: 0.6815 (0.7440)	Batch_time 0.892 (1.067)	Data_time 0.001 (0.142)	
+2023-05-25 23:45:15,776 Epoch: [4][67/1133]	Loss: 0.6854 (0.7402)	Batch_time 0.874 (1.056)	Data_time 0.000 (0.135)	
+2023-05-25 23:45:25,477 Epoch: [4][77/1133]	Loss: 0.7272 (0.7423)	Batch_time 0.925 (1.045)	Data_time 0.001 (0.129)	
+2023-05-25 23:45:35,092 Epoch: [4][87/1133]	Loss: 0.6535 (0.7400)	Batch_time 0.869 (1.036)	Data_time 0.000 (0.124)	
+2023-05-25 23:45:44,699 Epoch: [4][97/1133]	Loss: 0.7648 (0.7394)	Batch_time 0.876 (1.028)	Data_time 0.000 (0.120)	
+2023-05-25 23:45:55,575 Epoch: [4][107/1133]	Loss: 0.8095 (0.7407)	Batch_time 0.905 (1.033)	Data_time 0.001 (0.117)	
+2023-05-25 23:46:05,604 Epoch: [4][117/1133]	Loss: 0.7685 (0.7402)	Batch_time 0.910 (1.031)	Data_time 0.000 (0.115)	
+2023-05-25 23:46:15,306 Epoch: [4][127/1133]	Loss: 0.7815 (0.7405)	Batch_time 0.870 (1.026)	Data_time 0.000 (0.113)	
+2023-05-25 23:46:25,270 Epoch: [4][137/1133]	Loss: 0.6707 (0.7376)	Batch_time 0.917 (1.024)	Data_time 0.000 (0.111)	
+2023-05-25 23:46:35,457 Epoch: [4][147/1133]	Loss: 0.6693 (0.7395)	Batch_time 0.873 (1.024)	Data_time 0.000 (0.110)	
+2023-05-25 23:46:45,311 Epoch: [4][157/1133]	Loss: 0.8471 (0.7386)	Batch_time 0.911 (1.021)	Data_time 0.001 (0.108)	
+2023-05-25 23:46:55,201 Epoch: [4][167/1133]	Loss: 0.6639 (0.7382)	Batch_time 0.945 (1.019)	Data_time 0.001 (0.107)	
+2023-05-25 23:47:06,086 Epoch: [4][177/1133]	Loss: 0.7214 (0.7387)	Batch_time 0.874 (1.023)	Data_time 0.000 (0.106)	
+2023-05-25 23:47:16,042 Epoch: [4][187/1133]	Loss: 0.7294 (0.7382)	Batch_time 0.928 (1.022)	Data_time 0.001 (0.105)	
+2023-05-25 23:47:25,760 Epoch: [4][197/1133]	Loss: 0.7457 (0.7375)	Batch_time 0.869 (1.019)	Data_time 0.001 (0.104)	
+2023-05-25 23:47:35,514 Epoch: [4][207/1133]	Loss: 0.7080 (0.7392)	Batch_time 0.871 (1.017)	Data_time 0.001 (0.103)	
+2023-05-25 23:47:45,458 Epoch: [4][217/1133]	Loss: 0.7912 (0.7428)	Batch_time 0.874 (1.016)	Data_time 0.000 (0.102)	
+2023-05-25 23:47:55,635 Epoch: [4][227/1133]	Loss: 0.7177 (0.7423)	Batch_time 0.926 (1.016)	Data_time 0.001 (0.101)	
+2023-05-25 23:48:05,686 Epoch: [4][237/1133]	Loss: 0.7422 (0.7424)	Batch_time 0.916 (1.016)	Data_time 0.001 (0.101)	
+2023-05-25 23:48:16,868 Epoch: [4][247/1133]	Loss: 0.7903 (0.7437)	Batch_time 0.914 (1.020)	Data_time 0.001 (0.100)	
+2023-05-25 23:48:26,719 Epoch: [4][257/1133]	Loss: 0.7935 (0.7434)	Batch_time 0.886 (1.018)	Data_time 0.001 (0.100)	
+2023-05-25 23:48:36,447 Epoch: [4][267/1133]	Loss: 0.8591 (0.7445)	Batch_time 0.876 (1.017)	Data_time 0.001 (0.100)	
+2023-05-25 23:48:46,362 Epoch: [4][277/1133]	Loss: 0.8162 (0.7457)	Batch_time 0.924 (1.016)	Data_time 0.001 (0.099)	
+2023-05-25 23:48:56,333 Epoch: [4][287/1133]	Loss: 0.7212 (0.7463)	Batch_time 0.937 (1.015)	Data_time 0.001 (0.099)	
+2023-05-25 23:49:06,436 Epoch: [4][297/1133]	Loss: 0.7378 (0.7450)	Batch_time 1.007 (1.015)	Data_time 0.000 (0.098)	
+2023-05-25 23:49:16,685 Epoch: [4][307/1133]	Loss: 0.7126 (0.7444)	Batch_time 0.895 (1.015)	Data_time 0.001 (0.098)	
+2023-05-25 23:49:26,581 Epoch: [4][317/1133]	Loss: 0.8656 (0.7471)	Batch_time 0.960 (1.015)	Data_time 0.001 (0.097)	
+2023-05-25 23:49:38,109 Epoch: [4][327/1133]	Loss: 0.6483 (0.7467)	Batch_time 0.881 (1.019)	Data_time 0.000 (0.097)	
+2023-05-25 23:49:48,108 Epoch: [4][337/1133]	Loss: 0.7187 (0.7475)	Batch_time 0.938 (1.018)	Data_time 0.000 (0.097)	
+2023-05-25 23:49:57,822 Epoch: [4][347/1133]	Loss: 0.8130 (0.7475)	Batch_time 0.872 (1.017)	Data_time 0.000 (0.097)	
+2023-05-25 23:50:07,631 Epoch: [4][357/1133]	Loss: 0.7693 (0.7488)	Batch_time 0.860 (1.016)	Data_time 0.000 (0.096)	
+2023-05-25 23:50:17,254 Epoch: [4][367/1133]	Loss: 0.7704 (0.7501)	Batch_time 0.878 (1.014)	Data_time 0.000 (0.096)	
+2023-05-25 23:50:26,890 Epoch: [4][377/1133]	Loss: 0.7725 (0.7510)	Batch_time 0.873 (1.013)	Data_time 0.000 (0.096)	
+2023-05-25 23:50:36,867 Epoch: [4][387/1133]	Loss: 0.7757 (0.7516)	Batch_time 0.904 (1.013)	Data_time 0.001 (0.095)	
+2023-05-25 23:50:48,014 Epoch: [4][397/1133]	Loss: 0.7986 (0.7527)	Batch_time 0.894 (1.015)	Data_time 0.001 (0.095)	
+2023-05-25 23:50:57,677 Epoch: [4][407/1133]	Loss: 0.8547 (0.7554)	Batch_time 0.895 (1.014)	Data_time 0.000 (0.095)	
+2023-05-25 23:51:07,653 Epoch: [4][417/1133]	Loss: 0.8825 (0.7559)	Batch_time 0.909 (1.014)	Data_time 0.001 (0.095)	
+2023-05-25 23:51:17,369 Epoch: [4][427/1133]	Loss: 0.8394 (0.7561)	Batch_time 0.880 (1.013)	Data_time 0.000 (0.095)	
+2023-05-25 23:51:27,332 Epoch: [4][437/1133]	Loss: 0.6628 (0.7558)	Batch_time 0.909 (1.012)	Data_time 0.000 (0.095)	
+2023-05-25 23:51:37,191 Epoch: [4][447/1133]	Loss: 0.7855 (0.7562)	Batch_time 0.887 (1.012)	Data_time 0.000 (0.095)	
+2023-05-25 23:51:46,968 Epoch: [4][457/1133]	Loss: 0.6750 (0.7557)	Batch_time 0.911 (1.011)	Data_time 0.000 (0.094)	
+2023-05-25 23:51:56,906 Epoch: [4][467/1133]	Loss: 0.6859 (0.7561)	Batch_time 0.900 (1.011)	Data_time 0.001 (0.094)	
+2023-05-25 23:52:02,314 Test: [0/40]	 Loss : 2.4113 (2.4113)	Time 5.405 (5.405)	
+2023-05-25 23:52:07,899 Test: [10/40]	 Loss : 2.5534 (2.4458)	Time 5.585 (3.218)	
+2023-05-25 23:52:13,768 Test: [20/40]	 Loss : 2.4429 (2.4309)	Time 5.869 (3.173)	
+2023-05-25 23:52:20,003 Test: [30/40]	 Loss : 2.5157 (2.5136)	Time 6.233 (3.227)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-25 23:52:26,501 Image to caption: 31.8, 61.0, 73.5, 3.0, 19.0
+2023-05-25 23:52:27,445 Caption to image: 25.9, 54.5, 67.7, 4.0, 25.0
+2023-05-25 23:52:37,268 Epoch: [4][477/1133]	Loss: 0.7628 (0.7562)	Batch_time 0.884 (1.074)	Data_time 0.000 (0.158)	
+2023-05-25 23:52:46,799 Epoch: [4][487/1133]	Loss: 0.7012 (0.7559)	Batch_time 0.863 (1.071)	Data_time 0.000 (0.156)	
+2023-05-25 23:52:57,547 Epoch: [4][497/1133]	Loss: 0.7581 (0.7561)	Batch_time 0.853 (1.071)	Data_time 0.001 (0.155)	
+2023-05-25 23:53:07,458 Epoch: [4][507/1133]	Loss: 0.7996 (0.7567)	Batch_time 0.875 (1.070)	Data_time 0.000 (0.154)	
+2023-05-25 23:53:17,068 Epoch: [4][517/1133]	Loss: 0.8987 (0.7572)	Batch_time 0.862 (1.068)	Data_time 0.000 (0.152)	
+2023-05-25 23:53:26,795 Epoch: [4][527/1133]	Loss: 0.7592 (0.7577)	Batch_time 0.907 (1.066)	Data_time 0.000 (0.151)	
+2023-05-25 23:53:36,497 Epoch: [4][537/1133]	Loss: 0.7965 (0.7578)	Batch_time 0.864 (1.064)	Data_time 0.000 (0.150)	
+2023-05-25 23:53:46,152 Epoch: [4][547/1133]	Loss: 0.8346 (0.7577)	Batch_time 0.868 (1.062)	Data_time 0.000 (0.149)	
+2023-05-25 23:53:56,032 Epoch: [4][557/1133]	Loss: 0.7663 (0.7578)	Batch_time 0.860 (1.061)	Data_time 0.000 (0.148)	
+2023-05-25 23:54:06,823 Epoch: [4][567/1133]	Loss: 0.6072 (0.7578)	Batch_time 0.877 (1.061)	Data_time 0.000 (0.147)	
+2023-05-25 23:54:17,028 Epoch: [4][577/1133]	Loss: 0.7572 (0.7577)	Batch_time 0.901 (1.061)	Data_time 0.000 (0.146)	
+2023-05-25 23:54:26,721 Epoch: [4][587/1133]	Loss: 0.7678 (0.7582)	Batch_time 0.886 (1.059)	Data_time 0.000 (0.145)	
+2023-05-25 23:54:36,461 Epoch: [4][597/1133]	Loss: 0.7687 (0.7588)	Batch_time 0.913 (1.058)	Data_time 0.000 (0.144)	
+2023-05-25 23:54:46,183 Epoch: [4][607/1133]	Loss: 0.8600 (0.7596)	Batch_time 0.858 (1.056)	Data_time 0.000 (0.143)	
+2023-05-25 23:54:55,787 Epoch: [4][617/1133]	Loss: 0.7996 (0.7602)	Batch_time 0.883 (1.055)	Data_time 0.001 (0.142)	
+2023-05-25 23:55:06,233 Epoch: [4][627/1133]	Loss: 0.7100 (0.7605)	Batch_time 0.869 (1.055)	Data_time 0.000 (0.141)	
+2023-05-25 23:55:15,990 Epoch: [4][637/1133]	Loss: 0.7558 (0.7612)	Batch_time 0.951 (1.053)	Data_time 0.000 (0.141)	
+2023-05-25 23:55:25,642 Epoch: [4][647/1133]	Loss: 0.8620 (0.7617)	Batch_time 0.870 (1.052)	Data_time 0.000 (0.140)	
+2023-05-25 23:55:35,303 Epoch: [4][657/1133]	Loss: 0.6285 (0.7618)	Batch_time 0.867 (1.051)	Data_time 0.000 (0.139)	
+2023-05-25 23:55:44,968 Epoch: [4][667/1133]	Loss: 0.8177 (0.7621)	Batch_time 0.865 (1.049)	Data_time 0.000 (0.138)	
+2023-05-25 23:55:55,511 Epoch: [4][677/1133]	Loss: 0.8472 (0.7626)	Batch_time 0.868 (1.049)	Data_time 0.000 (0.137)	
+2023-05-25 23:56:05,380 Epoch: [4][687/1133]	Loss: 0.7723 (0.7622)	Batch_time 0.875 (1.049)	Data_time 0.000 (0.137)	
+2023-05-25 23:56:15,122 Epoch: [4][697/1133]	Loss: 0.7630 (0.7624)	Batch_time 0.883 (1.048)	Data_time 0.001 (0.136)	
+2023-05-25 23:56:24,779 Epoch: [4][707/1133]	Loss: 0.7162 (0.7619)	Batch_time 0.890 (1.046)	Data_time 0.000 (0.135)	
+2023-05-25 23:56:34,656 Epoch: [4][717/1133]	Loss: 0.8482 (0.7621)	Batch_time 0.901 (1.046)	Data_time 0.000 (0.135)	
+2023-05-25 23:56:44,475 Epoch: [4][727/1133]	Loss: 0.8549 (0.7626)	Batch_time 0.908 (1.045)	Data_time 0.000 (0.134)	
+2023-05-25 23:56:54,360 Epoch: [4][737/1133]	Loss: 0.7158 (0.7624)	Batch_time 0.919 (1.044)	Data_time 0.000 (0.133)	
+2023-05-25 23:57:04,803 Epoch: [4][747/1133]	Loss: 0.7839 (0.7624)	Batch_time 1.680 (1.044)	Data_time 0.000 (0.133)	
+2023-05-25 23:57:14,371 Epoch: [4][757/1133]	Loss: 0.6842 (0.7622)	Batch_time 0.854 (1.043)	Data_time 0.000 (0.132)	
+2023-05-25 23:57:24,065 Epoch: [4][767/1133]	Loss: 0.6144 (0.7618)	Batch_time 0.875 (1.042)	Data_time 0.000 (0.131)	
+2023-05-25 23:57:33,715 Epoch: [4][777/1133]	Loss: 0.7495 (0.7620)	Batch_time 0.875 (1.041)	Data_time 0.001 (0.131)	
+2023-05-25 23:57:43,378 Epoch: [4][787/1133]	Loss: 0.7380 (0.7623)	Batch_time 0.863 (1.040)	Data_time 0.000 (0.130)	
+2023-05-25 23:57:52,975 Epoch: [4][797/1133]	Loss: 0.7573 (0.7625)	Batch_time 0.879 (1.039)	Data_time 0.000 (0.130)	
+2023-05-25 23:58:02,759 Epoch: [4][807/1133]	Loss: 0.6906 (0.7624)	Batch_time 0.873 (1.038)	Data_time 0.000 (0.129)	
+2023-05-25 23:58:13,221 Epoch: [4][817/1133]	Loss: 0.8040 (0.7625)	Batch_time 0.864 (1.038)	Data_time 0.001 (0.129)	
+2023-05-25 23:58:23,001 Epoch: [4][827/1133]	Loss: 0.7363 (0.7627)	Batch_time 0.904 (1.037)	Data_time 0.001 (0.128)	
+2023-05-25 23:58:32,724 Epoch: [4][837/1133]	Loss: 0.7720 (0.7631)	Batch_time 0.899 (1.037)	Data_time 0.000 (0.128)	
+2023-05-25 23:58:42,445 Epoch: [4][847/1133]	Loss: 0.7337 (0.7634)	Batch_time 0.917 (1.036)	Data_time 0.000 (0.127)	
+2023-05-25 23:58:52,270 Epoch: [4][857/1133]	Loss: 0.6165 (0.7633)	Batch_time 0.902 (1.035)	Data_time 0.001 (0.127)	
+2023-05-25 23:59:02,602 Epoch: [4][867/1133]	Loss: 0.7694 (0.7638)	Batch_time 0.924 (1.035)	Data_time 0.001 (0.126)	
+2023-05-25 23:59:13,750 Epoch: [4][877/1133]	Loss: 0.9130 (0.7642)	Batch_time 0.934 (1.036)	Data_time 0.000 (0.126)	
+2023-05-25 23:59:23,979 Epoch: [4][887/1133]	Loss: 0.8330 (0.7641)	Batch_time 0.926 (1.036)	Data_time 0.000 (0.125)	
+2023-05-25 23:59:34,265 Epoch: [4][897/1133]	Loss: 0.8013 (0.7648)	Batch_time 0.928 (1.036)	Data_time 0.000 (0.125)	
+2023-05-25 23:59:44,556 Epoch: [4][907/1133]	Loss: 0.7471 (0.7649)	Batch_time 0.923 (1.036)	Data_time 0.000 (0.124)	
+2023-05-25 23:59:54,930 Epoch: [4][917/1133]	Loss: 0.7172 (0.7654)	Batch_time 0.947 (1.036)	Data_time 0.000 (0.124)	
+2023-05-26 00:00:05,651 Epoch: [4][927/1133]	Loss: 0.8413 (0.7661)	Batch_time 0.874 (1.036)	Data_time 0.001 (0.124)	
+2023-05-26 00:00:15,322 Epoch: [4][937/1133]	Loss: 0.8086 (0.7663)	Batch_time 0.863 (1.036)	Data_time 0.001 (0.123)	
+2023-05-26 00:00:25,091 Epoch: [4][947/1133]	Loss: 0.8306 (0.7666)	Batch_time 0.877 (1.035)	Data_time 0.000 (0.123)	
+2023-05-26 00:00:34,688 Epoch: [4][957/1133]	Loss: 0.8019 (0.7673)	Batch_time 0.902 (1.034)	Data_time 0.000 (0.122)	
+2023-05-26 00:00:44,408 Epoch: [4][967/1133]	Loss: 0.8989 (0.7679)	Batch_time 0.877 (1.034)	Data_time 0.000 (0.122)	
+2023-05-26 00:00:47,713 Test: [0/40]	 Loss : 2.2646 (2.2646)	Time 3.304 (3.304)	
+2023-05-26 00:00:54,178 Test: [10/40]	 Loss : 2.5783 (2.4500)	Time 6.465 (3.165)	
+2023-05-26 00:01:00,076 Test: [20/40]	 Loss : 2.4353 (2.4344)	Time 5.897 (3.246)	
+2023-05-26 00:01:06,127 Test: [30/40]	 Loss : 2.5938 (2.5214)	Time 6.050 (3.282)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:01:12,679 Image to caption: 33.1, 61.2, 72.5, 3.0, 23.0
+2023-05-26 00:01:13,547 Caption to image: 25.7, 54.7, 66.7, 4.0, 26.0
+2023-05-26 00:01:23,196 Epoch: [4][977/1133]	Loss: 0.6664 (0.7677)	Batch_time 0.871 (1.063)	Data_time 0.000 (0.152)	
+2023-05-26 00:01:32,858 Epoch: [4][987/1133]	Loss: 0.8183 (0.7684)	Batch_time 0.877 (1.062)	Data_time 0.000 (0.151)	
+2023-05-26 00:01:42,456 Epoch: [4][997/1133]	Loss: 0.7739 (0.7687)	Batch_time 0.862 (1.061)	Data_time 0.000 (0.150)	
+2023-05-26 00:01:53,275 Epoch: [4][1007/1133]	Loss: 0.7215 (0.7690)	Batch_time 0.857 (1.061)	Data_time 0.000 (0.150)	
+2023-05-26 00:02:03,091 Epoch: [4][1017/1133]	Loss: 0.8191 (0.7691)	Batch_time 0.872 (1.060)	Data_time 0.000 (0.149)	
+2023-05-26 00:02:12,791 Epoch: [4][1027/1133]	Loss: 0.8800 (0.7692)	Batch_time 0.851 (1.059)	Data_time 0.001 (0.149)	
+2023-05-26 00:02:22,372 Epoch: [4][1037/1133]	Loss: 0.8154 (0.7694)	Batch_time 0.866 (1.058)	Data_time 0.000 (0.148)	
+2023-05-26 00:02:31,987 Epoch: [4][1047/1133]	Loss: 0.8125 (0.7696)	Batch_time 0.869 (1.057)	Data_time 0.000 (0.147)	
+2023-05-26 00:02:41,876 Epoch: [4][1057/1133]	Loss: 0.6902 (0.7696)	Batch_time 0.866 (1.057)	Data_time 0.000 (0.147)	
+2023-05-26 00:02:52,410 Epoch: [4][1067/1133]	Loss: 0.8013 (0.7704)	Batch_time 0.881 (1.057)	Data_time 0.000 (0.146)	
+2023-05-26 00:03:01,980 Epoch: [4][1077/1133]	Loss: 0.7766 (0.7707)	Batch_time 0.860 (1.056)	Data_time 0.000 (0.146)	
+2023-05-26 00:03:11,735 Epoch: [4][1087/1133]	Loss: 0.8389 (0.7706)	Batch_time 0.920 (1.055)	Data_time 0.000 (0.145)	
+2023-05-26 00:03:21,481 Epoch: [4][1097/1133]	Loss: 0.7699 (0.7706)	Batch_time 0.869 (1.054)	Data_time 0.001 (0.145)	
+2023-05-26 00:03:31,065 Epoch: [4][1107/1133]	Loss: 0.7165 (0.7711)	Batch_time 0.869 (1.053)	Data_time 0.000 (0.144)	
+2023-05-26 00:03:41,549 Epoch: [4][1117/1133]	Loss: 0.7652 (0.7712)	Batch_time 0.854 (1.053)	Data_time 0.000 (0.144)	
+2023-05-26 00:03:51,280 Epoch: [4][1127/1133]	Loss: 0.8346 (0.7716)	Batch_time 0.903 (1.053)	Data_time 0.000 (0.143)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:03:59,198 Test: [0/40]	 Loss : 2.3920 (2.3920)	Time 3.168 (3.168)	
+2023-05-26 00:04:04,618 Test: [10/40]	 Loss : 2.5134 (2.4572)	Time 5.420 (2.937)	
+2023-05-26 00:04:10,739 Test: [20/40]	 Loss : 2.5643 (2.4531)	Time 6.121 (3.165)	
+2023-05-26 00:04:16,745 Test: [30/40]	 Loss : 2.5991 (2.5204)	Time 6.005 (3.205)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:04:23,605 Image to caption: 31.4, 62.0, 72.8, 3.0, 22.0
+2023-05-26 00:04:24,481 Caption to image: 25.0, 54.6, 66.9, 4.0, 26.0
+2023-05-26 00:04:37,750 Epoch: [5][4/1133]	Loss: 0.7613 (0.6790)	Batch_time 2.108 (1.755)	Data_time 0.000 (0.545)	
+2023-05-26 00:04:47,602 Epoch: [5][14/1133]	Loss: 0.6042 (0.6302)	Batch_time 0.871 (1.242)	Data_time 0.001 (0.237)	
+2023-05-26 00:04:57,637 Epoch: [5][24/1133]	Loss: 0.6189 (0.6334)	Batch_time 0.912 (1.146)	Data_time 0.001 (0.175)	
+2023-05-26 00:05:07,891 Epoch: [5][34/1133]	Loss: 0.6448 (0.6279)	Batch_time 0.979 (1.112)	Data_time 0.000 (0.150)	
+2023-05-26 00:05:17,637 Epoch: [5][44/1133]	Loss: 0.6750 (0.6356)	Batch_time 0.881 (1.081)	Data_time 0.005 (0.130)	
+2023-05-26 00:05:26,990 Epoch: [5][54/1133]	Loss: 0.6243 (0.6332)	Batch_time 0.940 (1.055)	Data_time 0.008 (0.108)	
+2023-05-26 00:05:36,118 Epoch: [5][64/1133]	Loss: 0.5834 (0.6284)	Batch_time 0.878 (1.033)	Data_time 0.004 (0.092)	
+2023-05-26 00:05:45,755 Epoch: [5][74/1133]	Loss: 0.6621 (0.6321)	Batch_time 0.993 (1.024)	Data_time 0.079 (0.087)	
+2023-05-26 00:05:57,212 Epoch: [5][84/1133]	Loss: 0.6196 (0.6293)	Batch_time 1.021 (1.038)	Data_time 0.083 (0.086)	
+2023-05-26 00:06:07,161 Epoch: [5][94/1133]	Loss: 0.7705 (0.6307)	Batch_time 1.004 (1.034)	Data_time 0.094 (0.087)	
+2023-05-26 00:06:16,936 Epoch: [5][104/1133]	Loss: 0.6736 (0.6318)	Batch_time 0.969 (1.028)	Data_time 0.082 (0.086)	
+2023-05-26 00:06:26,702 Epoch: [5][114/1133]	Loss: 0.5915 (0.6309)	Batch_time 0.974 (1.024)	Data_time 0.091 (0.087)	
+2023-05-26 00:06:36,703 Epoch: [5][124/1133]	Loss: 0.5754 (0.6320)	Batch_time 0.970 (1.022)	Data_time 0.093 (0.087)	
+2023-05-26 00:06:46,407 Epoch: [5][134/1133]	Loss: 0.6128 (0.6310)	Batch_time 0.964 (1.018)	Data_time 0.086 (0.088)	
+2023-05-26 00:06:56,091 Epoch: [5][144/1133]	Loss: 0.6141 (0.6287)	Batch_time 0.952 (1.015)	Data_time 0.088 (0.088)	
+2023-05-26 00:07:06,888 Epoch: [5][154/1133]	Loss: 0.6334 (0.6275)	Batch_time 0.982 (1.019)	Data_time 0.093 (0.088)	
+2023-05-26 00:07:16,740 Epoch: [5][164/1133]	Loss: 0.6247 (0.6279)	Batch_time 0.956 (1.017)	Data_time 0.090 (0.089)	
+2023-05-26 00:07:26,480 Epoch: [5][174/1133]	Loss: 0.5684 (0.6288)	Batch_time 0.966 (1.014)	Data_time 0.104 (0.089)	
+2023-05-26 00:07:36,194 Epoch: [5][184/1133]	Loss: 0.6601 (0.6308)	Batch_time 0.947 (1.012)	Data_time 0.085 (0.089)	
+2023-05-26 00:07:45,994 Epoch: [5][194/1133]	Loss: 0.5525 (0.6309)	Batch_time 0.951 (1.010)	Data_time 0.088 (0.090)	
+2023-05-26 00:07:55,665 Epoch: [5][204/1133]	Loss: 0.5259 (0.6300)	Batch_time 0.967 (1.008)	Data_time 0.086 (0.090)	
+2023-05-26 00:08:05,262 Epoch: [5][214/1133]	Loss: 0.6352 (0.6297)	Batch_time 0.952 (1.006)	Data_time 0.087 (0.090)	
+2023-05-26 00:08:14,885 Epoch: [5][224/1133]	Loss: 0.6300 (0.6311)	Batch_time 0.946 (1.004)	Data_time 0.089 (0.090)	
+2023-05-26 00:08:25,335 Epoch: [5][234/1133]	Loss: 0.6182 (0.6309)	Batch_time 0.978 (1.006)	Data_time 0.092 (0.090)	
+2023-05-26 00:08:35,069 Epoch: [5][244/1133]	Loss: 0.6507 (0.6325)	Batch_time 0.956 (1.004)	Data_time 0.085 (0.090)	
+2023-05-26 00:08:44,700 Epoch: [5][254/1133]	Loss: 0.5628 (0.6323)	Batch_time 0.981 (1.003)	Data_time 0.093 (0.090)	
+2023-05-26 00:08:54,454 Epoch: [5][264/1133]	Loss: 0.6314 (0.6327)	Batch_time 0.954 (1.002)	Data_time 0.100 (0.090)	
+2023-05-26 00:09:04,126 Epoch: [5][274/1133]	Loss: 0.5733 (0.6342)	Batch_time 0.960 (1.001)	Data_time 0.092 (0.090)	
+2023-05-26 00:09:13,716 Epoch: [5][284/1133]	Loss: 0.6560 (0.6348)	Batch_time 0.953 (0.999)	Data_time 0.090 (0.090)	
+2023-05-26 00:09:23,297 Epoch: [5][294/1133]	Loss: 0.7192 (0.6350)	Batch_time 0.958 (0.998)	Data_time 0.096 (0.090)	
+2023-05-26 00:09:33,894 Epoch: [5][304/1133]	Loss: 0.6479 (0.6356)	Batch_time 0.967 (1.000)	Data_time 0.097 (0.090)	
+2023-05-26 00:09:43,563 Epoch: [5][314/1133]	Loss: 0.7497 (0.6361)	Batch_time 0.949 (0.999)	Data_time 0.090 (0.090)	
+2023-05-26 00:09:53,117 Epoch: [5][324/1133]	Loss: 0.5999 (0.6364)	Batch_time 0.955 (0.997)	Data_time 0.084 (0.090)	
+2023-05-26 00:10:02,676 Epoch: [5][334/1133]	Loss: 0.7149 (0.6370)	Batch_time 0.952 (0.996)	Data_time 0.088 (0.090)	
+2023-05-26 00:10:06,573 Test: [0/40]	 Loss : 2.4115 (2.4115)	Time 3.894 (3.894)	
+2023-05-26 00:10:12,071 Test: [10/40]	 Loss : 2.6269 (2.4750)	Time 5.498 (3.108)	
+2023-05-26 00:10:17,334 Test: [20/40]	 Loss : 2.3923 (2.4577)	Time 5.262 (2.969)	
+2023-05-26 00:10:23,964 Test: [30/40]	 Loss : 2.5836 (2.5374)	Time 6.630 (3.148)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:10:30,173 Image to caption: 31.5, 61.1, 72.0, 3.0, 22.0
+2023-05-26 00:10:31,151 Caption to image: 25.6, 54.3, 66.3, 4.0, 28.0
+2023-05-26 00:10:40,866 Epoch: [5][344/1133]	Loss: 0.6886 (0.6378)	Batch_time 0.977 (1.078)	Data_time 0.119 (0.173)	
+2023-05-26 00:10:50,848 Epoch: [5][354/1133]	Loss: 0.6892 (0.6379)	Batch_time 1.036 (1.076)	Data_time 0.090 (0.171)	
+2023-05-26 00:11:00,506 Epoch: [5][364/1133]	Loss: 0.7633 (0.6382)	Batch_time 0.961 (1.073)	Data_time 0.095 (0.169)	
+2023-05-26 00:11:10,114 Epoch: [5][374/1133]	Loss: 0.7091 (0.6389)	Batch_time 0.969 (1.070)	Data_time 0.104 (0.167)	
+2023-05-26 00:11:20,810 Epoch: [5][384/1133]	Loss: 0.6487 (0.6393)	Batch_time 0.987 (1.070)	Data_time 0.095 (0.165)	
+2023-05-26 00:11:30,525 Epoch: [5][394/1133]	Loss: 0.6788 (0.6393)	Batch_time 0.973 (1.067)	Data_time 0.090 (0.163)	
+2023-05-26 00:11:40,122 Epoch: [5][404/1133]	Loss: 0.7017 (0.6401)	Batch_time 0.957 (1.065)	Data_time 0.093 (0.162)	
+2023-05-26 00:11:49,558 Epoch: [5][414/1133]	Loss: 0.6385 (0.6414)	Batch_time 0.934 (1.062)	Data_time 0.087 (0.160)	
+2023-05-26 00:11:59,332 Epoch: [5][424/1133]	Loss: 0.6887 (0.6416)	Batch_time 0.962 (1.060)	Data_time 0.095 (0.158)	
+2023-05-26 00:12:09,069 Epoch: [5][434/1133]	Loss: 0.6937 (0.6415)	Batch_time 0.976 (1.058)	Data_time 0.092 (0.157)	
+2023-05-26 00:12:19,678 Epoch: [5][444/1133]	Loss: 0.6319 (0.6417)	Batch_time 0.977 (1.058)	Data_time 0.097 (0.156)	
+2023-05-26 00:12:29,665 Epoch: [5][454/1133]	Loss: 0.5955 (0.6413)	Batch_time 0.967 (1.056)	Data_time 0.092 (0.154)	
+2023-05-26 00:12:39,354 Epoch: [5][464/1133]	Loss: 0.7088 (0.6418)	Batch_time 0.966 (1.055)	Data_time 0.096 (0.153)	
+2023-05-26 00:12:48,967 Epoch: [5][474/1133]	Loss: 0.8319 (0.6433)	Batch_time 0.942 (1.053)	Data_time 0.091 (0.152)	
+2023-05-26 00:12:59,369 Epoch: [5][484/1133]	Loss: 0.6123 (0.6443)	Batch_time 1.791 (1.052)	Data_time 0.096 (0.150)	
+2023-05-26 00:13:09,108 Epoch: [5][494/1133]	Loss: 0.6639 (0.6455)	Batch_time 0.976 (1.051)	Data_time 0.091 (0.149)	
+2023-05-26 00:13:18,622 Epoch: [5][504/1133]	Loss: 0.7063 (0.6458)	Batch_time 0.974 (1.049)	Data_time 0.095 (0.148)	
+2023-05-26 00:13:28,376 Epoch: [5][514/1133]	Loss: 0.6627 (0.6459)	Batch_time 0.988 (1.047)	Data_time 0.113 (0.147)	
+2023-05-26 00:13:37,999 Epoch: [5][524/1133]	Loss: 0.7004 (0.6465)	Batch_time 0.948 (1.046)	Data_time 0.087 (0.146)	
+2023-05-26 00:13:47,765 Epoch: [5][534/1133]	Loss: 0.5895 (0.6467)	Batch_time 0.988 (1.044)	Data_time 0.091 (0.145)	
+2023-05-26 00:13:57,340 Epoch: [5][544/1133]	Loss: 0.7103 (0.6472)	Batch_time 0.952 (1.043)	Data_time 0.094 (0.144)	
+2023-05-26 00:14:06,965 Epoch: [5][554/1133]	Loss: 0.6407 (0.6475)	Batch_time 0.953 (1.041)	Data_time 0.091 (0.143)	
+2023-05-26 00:14:17,472 Epoch: [5][564/1133]	Loss: 0.6089 (0.6473)	Batch_time 0.962 (1.042)	Data_time 0.093 (0.142)	
+2023-05-26 00:14:27,114 Epoch: [5][574/1133]	Loss: 0.5844 (0.6481)	Batch_time 0.992 (1.040)	Data_time 0.097 (0.141)	
+2023-05-26 00:14:36,771 Epoch: [5][584/1133]	Loss: 0.5886 (0.6488)	Batch_time 0.944 (1.039)	Data_time 0.091 (0.140)	
+2023-05-26 00:14:46,380 Epoch: [5][594/1133]	Loss: 0.7601 (0.6494)	Batch_time 0.974 (1.038)	Data_time 0.099 (0.139)	
+2023-05-26 00:14:55,988 Epoch: [5][604/1133]	Loss: 0.6466 (0.6492)	Batch_time 0.983 (1.036)	Data_time 0.091 (0.139)	
+2023-05-26 00:15:05,669 Epoch: [5][614/1133]	Loss: 0.6809 (0.6501)	Batch_time 0.976 (1.035)	Data_time 0.097 (0.138)	
+2023-05-26 00:15:16,129 Epoch: [5][624/1133]	Loss: 0.6886 (0.6508)	Batch_time 0.956 (1.035)	Data_time 0.092 (0.137)	
+2023-05-26 00:15:25,789 Epoch: [5][634/1133]	Loss: 0.6062 (0.6514)	Batch_time 0.967 (1.034)	Data_time 0.077 (0.136)	
+2023-05-26 00:15:35,517 Epoch: [5][644/1133]	Loss: 0.6249 (0.6515)	Batch_time 0.963 (1.033)	Data_time 0.092 (0.136)	
+2023-05-26 00:15:45,097 Epoch: [5][654/1133]	Loss: 0.7426 (0.6515)	Batch_time 0.959 (1.032)	Data_time 0.092 (0.135)	
+2023-05-26 00:15:54,785 Epoch: [5][664/1133]	Loss: 0.5845 (0.6515)	Batch_time 0.948 (1.031)	Data_time 0.090 (0.135)	
+2023-05-26 00:16:04,434 Epoch: [5][674/1133]	Loss: 0.7564 (0.6518)	Batch_time 0.991 (1.030)	Data_time 0.093 (0.134)	
+2023-05-26 00:16:14,934 Epoch: [5][684/1133]	Loss: 0.7621 (0.6518)	Batch_time 1.784 (1.031)	Data_time 0.090 (0.134)	
+2023-05-26 00:16:24,755 Epoch: [5][694/1133]	Loss: 0.7891 (0.6520)	Batch_time 0.974 (1.030)	Data_time 0.090 (0.133)	
+2023-05-26 00:16:34,495 Epoch: [5][704/1133]	Loss: 0.7352 (0.6528)	Batch_time 0.934 (1.029)	Data_time 0.075 (0.132)	
+2023-05-26 00:16:44,198 Epoch: [5][714/1133]	Loss: 0.8457 (0.6534)	Batch_time 0.967 (1.028)	Data_time 0.091 (0.132)	
+2023-05-26 00:16:53,895 Epoch: [5][724/1133]	Loss: 0.7416 (0.6532)	Batch_time 0.979 (1.027)	Data_time 0.092 (0.131)	
+2023-05-26 00:17:03,555 Epoch: [5][734/1133]	Loss: 0.5760 (0.6534)	Batch_time 0.969 (1.027)	Data_time 0.092 (0.131)	
+2023-05-26 00:17:14,223 Epoch: [5][744/1133]	Loss: 0.6782 (0.6535)	Batch_time 0.958 (1.027)	Data_time 0.091 (0.131)	
+2023-05-26 00:17:23,812 Epoch: [5][754/1133]	Loss: 0.6521 (0.6537)	Batch_time 0.952 (1.026)	Data_time 0.086 (0.130)	
+2023-05-26 00:17:33,445 Epoch: [5][764/1133]	Loss: 0.8543 (0.6545)	Batch_time 0.944 (1.025)	Data_time 0.090 (0.130)	
+2023-05-26 00:17:42,998 Epoch: [5][774/1133]	Loss: 0.7788 (0.6553)	Batch_time 0.961 (1.025)	Data_time 0.090 (0.129)	
+2023-05-26 00:17:52,399 Epoch: [5][784/1133]	Loss: 0.7281 (0.6556)	Batch_time 0.938 (1.023)	Data_time 0.090 (0.128)	
+2023-05-26 00:18:02,030 Epoch: [5][794/1133]	Loss: 0.7457 (0.6556)	Batch_time 0.950 (1.023)	Data_time 0.090 (0.128)	
+2023-05-26 00:18:11,748 Epoch: [5][804/1133]	Loss: 0.5224 (0.6561)	Batch_time 0.942 (1.022)	Data_time 0.091 (0.127)	
+2023-05-26 00:18:22,297 Epoch: [5][814/1133]	Loss: 0.7170 (0.6564)	Batch_time 0.966 (1.022)	Data_time 0.091 (0.127)	
+2023-05-26 00:18:31,846 Epoch: [5][824/1133]	Loss: 0.6528 (0.6559)	Batch_time 0.948 (1.022)	Data_time 0.092 (0.127)	
+2023-05-26 00:18:41,709 Epoch: [5][834/1133]	Loss: 0.6850 (0.6562)	Batch_time 0.967 (1.021)	Data_time 0.093 (0.126)	
+2023-05-26 00:18:45,404 Test: [0/40]	 Loss : 2.4595 (2.4595)	Time 3.693 (3.693)	
+2023-05-26 00:18:50,841 Test: [10/40]	 Loss : 2.6245 (2.4606)	Time 5.436 (3.029)	
+2023-05-26 00:18:56,651 Test: [20/40]	 Loss : 2.4908 (2.4521)	Time 5.810 (3.039)	
+2023-05-26 00:19:02,597 Test: [30/40]	 Loss : 2.6355 (2.5320)	Time 5.945 (3.082)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:19:08,815 Image to caption: 31.9, 60.3, 72.4, 3.0, 24.0
+2023-05-26 00:19:09,715 Caption to image: 25.5, 54.0, 65.7, 4.0, 28.0
+2023-05-26 00:19:20,170 Epoch: [5][844/1133]	Loss: 0.6864 (0.6563)	Batch_time 0.948 (1.055)	Data_time 0.092 (0.159)	
+2023-05-26 00:19:29,734 Epoch: [5][854/1133]	Loss: 0.6739 (0.6563)	Batch_time 0.935 (1.054)	Data_time 0.090 (0.158)	
+2023-05-26 00:19:39,422 Epoch: [5][864/1133]	Loss: 0.6694 (0.6564)	Batch_time 0.942 (1.053)	Data_time 0.091 (0.157)	
+2023-05-26 00:19:48,946 Epoch: [5][874/1133]	Loss: 0.7297 (0.6569)	Batch_time 0.951 (1.051)	Data_time 0.091 (0.157)	
+2023-05-26 00:19:58,617 Epoch: [5][884/1133]	Loss: 0.7554 (0.6569)	Batch_time 0.959 (1.050)	Data_time 0.094 (0.156)	
+2023-05-26 00:20:08,200 Epoch: [5][894/1133]	Loss: 0.7261 (0.6568)	Batch_time 0.945 (1.049)	Data_time 0.091 (0.155)	
+2023-05-26 00:20:17,704 Epoch: [5][904/1133]	Loss: 0.6627 (0.6573)	Batch_time 0.940 (1.048)	Data_time 0.090 (0.155)	
+2023-05-26 00:20:27,186 Epoch: [5][914/1133]	Loss: 0.6340 (0.6577)	Batch_time 0.963 (1.047)	Data_time 0.092 (0.154)	
+2023-05-26 00:20:37,665 Epoch: [5][924/1133]	Loss: 0.7046 (0.6577)	Batch_time 0.948 (1.047)	Data_time 0.092 (0.153)	
+2023-05-26 00:20:47,383 Epoch: [5][934/1133]	Loss: 0.6526 (0.6578)	Batch_time 0.987 (1.046)	Data_time 0.093 (0.153)	
+2023-05-26 00:20:56,942 Epoch: [5][944/1133]	Loss: 0.6393 (0.6581)	Batch_time 0.953 (1.045)	Data_time 0.090 (0.152)	
+2023-05-26 00:21:06,448 Epoch: [5][954/1133]	Loss: 0.6259 (0.6585)	Batch_time 0.945 (1.044)	Data_time 0.090 (0.151)	
+2023-05-26 00:21:16,012 Epoch: [5][964/1133]	Loss: 0.6710 (0.6589)	Batch_time 0.944 (1.044)	Data_time 0.091 (0.151)	
+2023-05-26 00:21:25,560 Epoch: [5][974/1133]	Loss: 0.7647 (0.6594)	Batch_time 1.042 (1.043)	Data_time 0.179 (0.150)	
+2023-05-26 00:21:35,916 Epoch: [5][984/1133]	Loss: 0.8076 (0.6599)	Batch_time 0.941 (1.043)	Data_time 0.078 (0.150)	
+2023-05-26 00:21:45,566 Epoch: [5][994/1133]	Loss: 0.5697 (0.6602)	Batch_time 0.947 (1.042)	Data_time 0.089 (0.149)	
+2023-05-26 00:21:55,145 Epoch: [5][1004/1133]	Loss: 0.6936 (0.6604)	Batch_time 0.988 (1.041)	Data_time 0.103 (0.149)	
+2023-05-26 00:22:04,794 Epoch: [5][1014/1133]	Loss: 0.5926 (0.6604)	Batch_time 0.954 (1.040)	Data_time 0.091 (0.148)	
+2023-05-26 00:22:14,310 Epoch: [5][1024/1133]	Loss: 0.7295 (0.6605)	Batch_time 0.944 (1.039)	Data_time 0.092 (0.148)	
+2023-05-26 00:22:23,963 Epoch: [5][1034/1133]	Loss: 0.5695 (0.6605)	Batch_time 0.958 (1.039)	Data_time 0.091 (0.147)	
+2023-05-26 00:22:34,348 Epoch: [5][1044/1133]	Loss: 0.7189 (0.6611)	Batch_time 0.964 (1.039)	Data_time 0.091 (0.146)	
+2023-05-26 00:22:44,065 Epoch: [5][1054/1133]	Loss: 0.6800 (0.6611)	Batch_time 0.983 (1.038)	Data_time 0.089 (0.146)	
+2023-05-26 00:22:53,767 Epoch: [5][1064/1133]	Loss: 0.6430 (0.6614)	Batch_time 0.939 (1.037)	Data_time 0.087 (0.145)	
+2023-05-26 00:23:03,373 Epoch: [5][1074/1133]	Loss: 0.7130 (0.6618)	Batch_time 0.973 (1.037)	Data_time 0.091 (0.145)	
+2023-05-26 00:23:13,034 Epoch: [5][1084/1133]	Loss: 0.6127 (0.6621)	Batch_time 0.953 (1.036)	Data_time 0.089 (0.144)	
+2023-05-26 00:23:23,441 Epoch: [5][1094/1133]	Loss: 0.6216 (0.6619)	Batch_time 0.960 (1.036)	Data_time 0.093 (0.144)	
+2023-05-26 00:23:33,105 Epoch: [5][1104/1133]	Loss: 0.6161 (0.6619)	Batch_time 0.947 (1.035)	Data_time 0.090 (0.143)	
+2023-05-26 00:23:42,755 Epoch: [5][1114/1133]	Loss: 0.7486 (0.6624)	Batch_time 1.049 (1.035)	Data_time 0.178 (0.143)	
+2023-05-26 00:23:52,578 Epoch: [5][1124/1133]	Loss: 0.6722 (0.6626)	Batch_time 0.983 (1.034)	Data_time 0.095 (0.143)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:24:03,600 Test: [0/40]	 Loss : 2.3841 (2.3841)	Time 3.648 (3.648)	
+2023-05-26 00:24:09,088 Test: [10/40]	 Loss : 2.4854 (2.4452)	Time 5.488 (3.007)	
+2023-05-26 00:24:14,884 Test: [20/40]	 Loss : 2.4693 (2.4546)	Time 5.795 (3.037)	
+2023-05-26 00:24:21,909 Test: [30/40]	 Loss : 2.5507 (2.5478)	Time 7.025 (3.352)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:24:28,116 Image to caption: 32.4, 59.7, 70.4, 3.0, 24.0
+2023-05-26 00:24:29,094 Caption to image: 26.1, 53.7, 65.2, 4.0, 29.0
+2023-05-26 00:24:38,162 Epoch: [6][1/1133]	Loss: 0.5600 (0.5627)	Batch_time 0.929 (2.337)	Data_time 0.017 (1.378)	
+2023-05-26 00:24:47,718 Epoch: [6][11/1133]	Loss: 0.5314 (0.5365)	Batch_time 0.971 (1.186)	Data_time 0.087 (0.284)	
+2023-05-26 00:24:57,558 Epoch: [6][21/1133]	Loss: 0.4948 (0.5351)	Batch_time 1.055 (1.094)	Data_time 0.093 (0.194)	
+2023-05-26 00:25:08,459 Epoch: [6][31/1133]	Loss: 0.5658 (0.5316)	Batch_time 1.960 (1.093)	Data_time 0.077 (0.161)	
+2023-05-26 00:25:18,180 Epoch: [6][41/1133]	Loss: 0.5668 (0.5344)	Batch_time 0.971 (1.064)	Data_time 0.071 (0.142)	
+2023-05-26 00:25:28,181 Epoch: [6][51/1133]	Loss: 0.5860 (0.5359)	Batch_time 0.975 (1.052)	Data_time 0.089 (0.131)	
+2023-05-26 00:25:37,877 Epoch: [6][61/1133]	Loss: 0.4744 (0.5377)	Batch_time 0.959 (1.039)	Data_time 0.076 (0.124)	
+2023-05-26 00:25:47,822 Epoch: [6][71/1133]	Loss: 0.4249 (0.5345)	Batch_time 0.978 (1.032)	Data_time 0.079 (0.118)	
+2023-05-26 00:25:58,404 Epoch: [6][81/1133]	Loss: 0.5816 (0.5343)	Batch_time 0.973 (1.036)	Data_time 0.100 (0.114)	
+2023-05-26 00:26:08,301 Epoch: [6][91/1133]	Loss: 0.4961 (0.5358)	Batch_time 0.962 (1.031)	Data_time 0.085 (0.111)	
+2023-05-26 00:26:17,915 Epoch: [6][101/1133]	Loss: 0.5778 (0.5375)	Batch_time 0.968 (1.024)	Data_time 0.087 (0.109)	
+2023-05-26 00:26:27,934 Epoch: [6][111/1133]	Loss: 0.6452 (0.5394)	Batch_time 0.961 (1.022)	Data_time 0.112 (0.107)	
+2023-05-26 00:26:37,854 Epoch: [6][121/1133]	Loss: 0.4952 (0.5399)	Batch_time 0.970 (1.019)	Data_time 0.086 (0.106)	
+2023-05-26 00:26:48,776 Epoch: [6][131/1133]	Loss: 0.4847 (0.5410)	Batch_time 0.973 (1.025)	Data_time 0.089 (0.104)	
+2023-05-26 00:26:58,794 Epoch: [6][141/1133]	Loss: 0.4723 (0.5412)	Batch_time 1.044 (1.023)	Data_time 0.089 (0.103)	
+2023-05-26 00:27:08,936 Epoch: [6][151/1133]	Loss: 0.5365 (0.5416)	Batch_time 1.006 (1.023)	Data_time 0.087 (0.102)	
+2023-05-26 00:27:18,789 Epoch: [6][161/1133]	Loss: 0.5882 (0.5416)	Batch_time 0.993 (1.020)	Data_time 0.088 (0.101)	
+2023-05-26 00:27:28,917 Epoch: [6][171/1133]	Loss: 0.5992 (0.5410)	Batch_time 0.958 (1.020)	Data_time 0.078 (0.100)	
+2023-05-26 00:27:39,832 Epoch: [6][181/1133]	Loss: 0.5355 (0.5410)	Batch_time 0.970 (1.024)	Data_time 0.088 (0.100)	
+2023-05-26 00:27:49,609 Epoch: [6][191/1133]	Loss: 0.5044 (0.5416)	Batch_time 0.984 (1.021)	Data_time 0.091 (0.099)	
+2023-05-26 00:27:59,571 Epoch: [6][201/1133]	Loss: 0.6107 (0.5427)	Batch_time 1.056 (1.020)	Data_time 0.082 (0.098)	
+2023-05-26 00:28:02,862 Test: [0/40]	 Loss : 2.4488 (2.4488)	Time 3.289 (3.289)	
+2023-05-26 00:28:08,580 Test: [10/40]	 Loss : 2.5885 (2.4959)	Time 5.718 (3.291)	
+2023-05-26 00:28:14,371 Test: [20/40]	 Loss : 2.4930 (2.4883)	Time 5.790 (3.255)	
+2023-05-26 00:28:20,351 Test: [30/40]	 Loss : 2.5624 (2.5716)	Time 5.979 (3.275)	
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+/data2/zhouchengxing/anaconda3/envs/env_3.8/lib/python3.8/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+2023-05-26 00:28:27,574 Image to caption: 29.9, 59.0, 69.8, 3.0, 24.0
+2023-05-26 00:28:28,579 Caption to image: 25.1, 53.2, 65.5, 5.0, 30.0
+2023-05-26 00:28:38,393 Epoch: [6][211/1133]	Loss: 0.4912 (0.5435)	Batch_time 0.996 (1.155)	Data_time 0.075 (0.234)	
+2023-05-26 00:28:48,370 Epoch: [6][221/1133]	Loss: 0.5254 (0.5433)	Batch_time 0.957 (1.148)	Data_time 0.086 (0.227)	
+2023-05-26 00:28:58,366 Epoch: [6][231/1133]	Loss: 0.5092 (0.5437)	Batch_time 0.992 (1.142)	Data_time 0.092 (0.221)	
+2023-05-26 00:29:08,179 Epoch: [6][241/1133]	Loss: 0.5522 (0.5442)	Batch_time 0.956 (1.135)	Data_time 0.092 (0.216)	
+2023-05-26 00:29:17,977 Epoch: [6][251/1133]	Loss: 0.5897 (0.5443)	Batch_time 1.048 (1.129)	Data_time 0.088 (0.210)	
+2023-05-26 00:29:28,311 Epoch: [6][261/1133]	Loss: 0.5302 (0.5448)	Batch_time 1.078 (1.125)	Data_time 0.096 (0.206)	
+2023-05-26 00:29:39,163 Epoch: [6][271/1133]	Loss: 0.5146 (0.5452)	Batch_time 1.927 (1.124)	Data_time 0.084 (0.201)	
+2023-05-26 00:29:49,069 Epoch: [6][281/1133]	Loss: 0.4925 (0.5460)	Batch_time 0.974 (1.119)	Data_time 0.099 (0.197)	
+2023-05-26 00:29:58,815 Epoch: [6][291/1133]	Loss: 0.5300 (0.5475)	Batch_time 0.959 (1.114)	Data_time 0.095 (0.193)	
+2023-05-26 00:30:08,363 Epoch: [6][301/1133]	Loss: 0.5451 (0.5478)	Batch_time 0.987 (1.109)	Data_time 0.079 (0.190)	
+2023-05-26 00:30:18,114 Epoch: [6][311/1133]	Loss: 0.5721 (0.5487)	Batch_time 0.954 (1.105)	Data_time 0.085 (0.186)	
+2023-05-26 00:30:27,701 Epoch: [6][321/1133]	Loss: 0.5492 (0.5494)	Batch_time 0.950 (1.100)	Data_time 0.087 (0.183)	
+2023-05-26 00:30:37,467 Epoch: [6][331/1133]	Loss: 0.5563 (0.5497)	Batch_time 0.947 (1.096)	Data_time 0.068 (0.180)	
+2023-05-26 00:30:46,996 Epoch: [6][341/1133]	Loss: 0.5352 (0.5501)	Batch_time 0.927 (1.092)	Data_time 0.071 (0.177)	
+2023-05-26 00:30:57,524 Epoch: [6][351/1133]	Loss: 0.6383 (0.5510)	Batch_time 0.937 (1.091)	Data_time 0.073 (0.174)	
+2023-05-26 00:31:07,010 Epoch: [6][361/1133]	Loss: 0.6126 (0.5517)	Batch_time 0.935 (1.087)	Data_time 0.081 (0.172)	
+2023-05-26 00:31:16,648 Epoch: [6][371/1133]	Loss: 0.5436 (0.5522)	Batch_time 0.938 (1.084)	Data_time 0.089 (0.170)	
+2023-05-26 00:31:26,329 Epoch: [6][381/1133]	Loss: 0.5752 (0.5528)	Batch_time 0.960 (1.081)	Data_time 0.088 (0.167)	
+2023-05-26 00:31:36,031 Epoch: [6][391/1133]	Loss: 0.5379 (0.5533)	Batch_time 0.977 (1.078)	Data_time 0.097 (0.166)	
+2023-05-26 00:31:45,896 Epoch: [6][401/1133]	Loss: 0.5365 (0.5547)	Batch_time 0.964 (1.076)	Data_time 0.091 (0.164)	
+2023-05-26 00:31:55,507 Epoch: [6][411/1133]	Loss: 0.6015 (0.5559)	Batch_time 0.950 (1.073)	Data_time 0.074 (0.162)	
+2023-05-26 00:32:06,256 Epoch: [6][421/1133]	Loss: 0.5791 (0.5566)	Batch_time 0.999 (1.073)	Data_time 0.075 (0.161)	
+2023-05-26 00:32:16,026 Epoch: [6][431/1133]	Loss: 0.5877 (0.5570)	Batch_time 0.951 (1.071)	Data_time 0.083 (0.159)	
