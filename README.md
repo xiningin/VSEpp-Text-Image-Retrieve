@@ -5,20 +5,31 @@
 
 代码整体架构以及需要新建的文件夹为：
 train:
+
 --model
+
 --nohup_logger
+
 --tensorboard_logger
+
 &emsp;   --GPU0
+
 &emsp;   --GPU1
+
 &emsp;   --GPU2
+
 &emsp;   --GPU3
+
 --vocab
+
 --word2vec
 
-
 data:
+
 dataset.json
+
 --images
+
 
 仓库中并未放置images的图片信息，需要自行下载[斯坦福划分数据集](https://cs.stanford.edu/people/karpathy/deepimagesent/)。
 
