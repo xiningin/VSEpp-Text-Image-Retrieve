@@ -333,6 +333,7 @@ class VSE(object):
     
     def val_model(self):
         self.image_encoder.eval()
+        self.text_encoder.eval()
         
 
     def forward(self , images , captions , lengths):
